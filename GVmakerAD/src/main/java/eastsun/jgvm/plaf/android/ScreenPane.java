@@ -8,6 +8,7 @@ import eastsun.jgvm.module.event.Area;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Rect;
+import android.util.Log;
 
 /**
  * @version Aug 10, 2009
@@ -25,6 +26,7 @@ public class ScreenPane {
         gvm.setColor(0xff000000, 0xff40c040);
         mBufferRect = new Rect(0, 0, ScreenModel.WIDTH, ScreenModel.HEIGHT);
         setSize(ScreenModel.WIDTH, ScreenModel.HEIGHT);
+        //Log.w("wangyu,screenmodel:",ScreenModel.WIDTH+","+ScreenModel.HEIGHT);
     }
     
    
@@ -35,9 +37,13 @@ public class ScreenPane {
     private float mScaleCurrent = 3.5f;
     
     public void setSize(int width, int height) {
-    	float maxScaleW = width / (float)mBufferRect.right;
+        //Log.w("wangyu,w:",width+"");
+        //Log.w("wangyu,h:",height+"");
+        height/=2;
+        float maxScaleW = width / (float)mBufferRect.right;
     	float maxScaleH = height / (float)mBufferRect.bottom;
-    	
+        //Log.w("wangyu,mbfr:",mBufferRect.right+"");
+
     	// use the minimum value
     	mScaleCurrent = maxScaleW < mScale ? maxScaleW:mScale; 
     	mScaleCurrent = maxScaleH < mScaleCurrent ? maxScaleH:mScaleCurrent;
@@ -59,7 +65,7 @@ public class ScreenPane {
 			// TODO: area information is unused.
 	
 				mBitmap.setPixels(mBuffer, 0, ScreenModel.WIDTH, 0, 0,
-						ScreenModel.WIDTH, ScreenModel.HEIGHT);	
+						ScreenModel.WIDTH, ScreenModel.HEIGHT);
 				}
 		}
     // refresh current screen to specific canvas

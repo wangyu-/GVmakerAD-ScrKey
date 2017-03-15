@@ -1,5 +1,5 @@
 package eastsun.jgvm.plaf.android;
-
+import android.util.Log;
 import static android.view.KeyEvent.KEYCODE_0;
 import static android.view.KeyEvent.KEYCODE_A;
 import static android.view.KeyEvent.KEYCODE_ALT_LEFT;
@@ -81,7 +81,7 @@ public class VirtualKey extends View {
     private Bitmap mFullKey;
     private Bitmap mPadKey;
     private Bitmap mButtonKey;
-    private boolean mShowAllKey=false;
+    private boolean mShowAllKey=true;
  
     private Rect mFullKeyRect;
     private Rect mScreenRect;
@@ -95,8 +95,12 @@ public class VirtualKey extends View {
     private float mScale = 3.5f;
     private float mScaleCurrentX = 3.5f;
     private float mScaleCurrentY= 3.5f;
+
+	private int max_height;
     
     public void setSize(int width, int height) {
+		max_height=height;
+		height/=2;
     	float maxScaleW = width / (float)mFullKeyRect.right;
     	float maxScaleH = height / (float)mFullKeyRect.bottom;
     	
@@ -112,8 +116,11 @@ public class VirtualKey extends View {
     	mScreenRect.right += mScreenRect.left;
     	mScreenRect.top = (height - mScreenRect.bottom) / 2;
     	mScreenRect.bottom += mScreenRect.top;
-    	
-    	int KeyPosX=0;
+
+		mScreenRect.top+=height;
+		mScreenRect.bottom +=height;
+
+		int KeyPosX=0;
     	int KeyPosY=160;
     	int PadHeight=120;
     	int PadWidth=120;
@@ -170,13 +177,14 @@ public class VirtualKey extends View {
 	}
     
 	private boolean HitKey(float x, float y) {
+		Log.v("wangyu,x,y",x+","+y);
 		boolean bNeedUpdata=false;
 		keycode = -1;
 		
 		int KeyRowNum=5;
 		int KeyArrayNum=10;
 		int cx=(int)(x/(mScreenRect.width()/KeyArrayNum));
-		int cy=(int)(y/(mScreenRect.height()/KeyRowNum));
+		int cy=(int)((y-max_height/2)/(mScreenRect.height()/KeyRowNum));
 		
 		if (!mShowAllKey) {
 			int PadCenterX = mPadScaleRect.left + mPadScaleRect.width() / 2;
@@ -225,7 +233,7 @@ public class VirtualKey extends View {
 				keycode=rawKeyCodes[cy][cx];
 			else
 			{
-				mShowAllKey=false;
+				//mShowAllKey=false;
 				bNeedUpdata=true;
 			}	
 		}
@@ -235,7 +243,7 @@ public class VirtualKey extends View {
 		}
 		else if(keycode==0)
 		{
-			mShowAllKey=false;
+			//mShowAllKey=false;
 			bNeedUpdata=true;
 		}
 		return bNeedUpdata;

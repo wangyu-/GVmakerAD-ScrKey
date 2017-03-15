@@ -39,7 +39,7 @@ public class GVmakerAD extends Activity {
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON, 
 				WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 		super.onCreate(savedInstanceState);
-		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);// wangyu changed to portrait
 		setContentView(R.layout.main);
 		mView = (MainView) findViewById(R.id.mainview);
 		mView.setTextView((TextView) findViewById(R.id.message));

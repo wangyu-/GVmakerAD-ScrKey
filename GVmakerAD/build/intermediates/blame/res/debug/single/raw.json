@@ -4,6 +4,18 @@
         "source": "C:\\Users\\wangyu\\StudioProjects\\GVmakerAD-ScrKey\\GVmakerAD\\src\\main\\res\\raw\\help.txt"
     },
     {
+        "merged": "C:\\Users\\wangyu\\StudioProjects\\GVmakerAD\\GVmakerAD\\build\\intermediates\\res\\merged\\debug\\raw\\about.txt",
+        "source": "C:\\Users\\wangyu\\StudioProjects\\GVmakerAD\\GVmakerAD\\src\\main\\res\\raw\\about.txt"
+    },
+    {
+        "merged": "C:\\Users\\wangyu\\StudioProjects\\GVmakerAD\\GVmakerAD\\build\\intermediates\\res\\merged\\debug\\raw\\ascii.bin",
+        "source": "C:\\Users\\wangyu\\StudioProjects\\GVmakerAD\\GVmakerAD\\src\\main\\res\\raw\\ascii.bin"
+    },
+    {
+        "merged": "C:\\Users\\wangyu\\StudioProjects\\GVmakerAD\\GVmakerAD\\build\\intermediates\\res\\merged\\debug\\raw\\gbfont.bin",
+        "source": "C:\\Users\\wangyu\\StudioProjects\\GVmakerAD\\GVmakerAD\\src\\main\\res\\raw\\gbfont.bin"
+    },
+    {
         "merged": "C:\\Users\\wangyu\\StudioProjects\\GVmakerAD-ScrKey\\GVmakerAD\\build\\intermediates\\res\\merged\\debug\\raw\\gbfont.bin",
         "source": "C:\\Users\\wangyu\\StudioProjects\\GVmakerAD-ScrKey\\GVmakerAD\\src\\main\\res\\raw\\gbfont.bin"
     },
@@ -16,6 +28,10 @@
         "source": "C:\\Users\\wangyu\\StudioProjects\\GVmakerAD-ScrKey\\GVmakerAD\\src\\main\\res\\raw\\gbfont16.bin"
     },
     {
+        "merged": "C:\\Users\\wangyu\\StudioProjects\\GVmakerAD\\GVmakerAD\\build\\intermediates\\res\\merged\\debug\\raw\\gbfont16.bin",
+        "source": "C:\\Users\\wangyu\\StudioProjects\\GVmakerAD\\GVmakerAD\\src\\main\\res\\raw\\gbfont16.bin"
+    },
+    {
         "merged": "C:\\Users\\wangyu\\StudioProjects\\GVmakerAD-ScrKey\\GVmakerAD\\build\\intermediates\\res\\merged\\debug\\raw\\ascii.bin",
         "source": "C:\\Users\\wangyu\\StudioProjects\\GVmakerAD-ScrKey\\GVmakerAD\\src\\main\\res\\raw\\ascii.bin"
     },
@@ -24,7 +40,19 @@
         "source": "C:\\Users\\wangyu\\StudioProjects\\GVmakerAD-ScrKey\\GVmakerAD\\src\\main\\res\\raw\\spell.dat"
     },
     {
+        "merged": "C:\\Users\\wangyu\\StudioProjects\\GVmakerAD\\GVmakerAD\\build\\intermediates\\res\\merged\\debug\\raw\\help.txt",
+        "source": "C:\\Users\\wangyu\\StudioProjects\\GVmakerAD\\GVmakerAD\\src\\main\\res\\raw\\help.txt"
+    },
+    {
+        "merged": "C:\\Users\\wangyu\\StudioProjects\\GVmakerAD\\GVmakerAD\\build\\intermediates\\res\\merged\\debug\\raw\\spell.dat",
+        "source": "C:\\Users\\wangyu\\StudioProjects\\GVmakerAD\\GVmakerAD\\src\\main\\res\\raw\\spell.dat"
+    },
+    {
         "merged": "C:\\Users\\wangyu\\StudioProjects\\GVmakerAD-ScrKey\\GVmakerAD\\build\\intermediates\\res\\merged\\debug\\raw\\ascii8.bin",
         "source": "C:\\Users\\wangyu\\StudioProjects\\GVmakerAD-ScrKey\\GVmakerAD\\src\\main\\res\\raw\\ascii8.bin"
+    },
+    {
+        "merged": "C:\\Users\\wangyu\\StudioProjects\\GVmakerAD\\GVmakerAD\\build\\intermediates\\res\\merged\\debug\\raw\\ascii8.bin",
+        "source": "C:\\Users\\wangyu\\StudioProjects\\GVmakerAD\\GVmakerAD\\src\\main\\res\\raw\\ascii8.bin"
     }
 ]
