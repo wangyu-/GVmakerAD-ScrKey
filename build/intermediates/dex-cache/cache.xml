@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\Users\wangyu\StudioProjects\GVmakerAD-ScrKey\GVmakerAD\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="06500e97eec191d221a6cdd543ca475bceade231">
+        <dex dex="C:\Users\wangyu\StudioProjects\GVmakerAD-ScrKey\GVmakerAD\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_bd7f5fa0274270dc8363f28c9109438c621bfe29\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\wangyu\StudioProjects\GVmakerAD-ScrKey\GVmakerAD\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
+        <dex dex="C:\Users\wangyu\StudioProjects\GVmakerAD-ScrKey\GVmakerAD\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_c6d80eac1ed36fda07901f7a627091177f5c472d\classes.dex" />
+    </item>
+
+</items>
