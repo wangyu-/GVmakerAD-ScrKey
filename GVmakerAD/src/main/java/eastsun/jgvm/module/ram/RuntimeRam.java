@@ -1,7 +1,7 @@
 package eastsun.jgvm.module.ram;
 
 /**
- * ÔËĞĞÊ±ÄÚ´æ,Ìá¹©ÔËĞĞÊ±Ïà¹ØĞÅÏ¢
+ * è¿è¡Œæ—¶å†…å­˜,æä¾›è¿è¡Œæ—¶ç›¸å…³ä¿¡æ¯
  * @author Eastsun
  */
 public final class RuntimeRam implements Ram {
@@ -14,7 +14,7 @@ public final class RuntimeRam implements Ram {
     }
 
     /**
-     * µÃµ½µ±Ç°ËùÔÚº¯ÊıÊ¹ÓÃÄÚ´æÇøÓòµÄÆğÊ¼µØÖ·
+     * å¾—åˆ°å½“å‰æ‰€åœ¨å‡½æ•°ä½¿ç”¨å†…å­˜åŒºåŸŸçš„èµ·å§‹åœ°å€
      * @return startAddr
      */
     public int getRegionStartAddr() {
@@ -22,15 +22,15 @@ public final class RuntimeRam implements Ram {
     }
 
     /**
-     * ÉèÖÃµ±Ç°º¯ÊıÊ¹ÓÃÄÚ´æµÄÆğÊ¼µØÖ·
-     * @param addr ÆğÊ¼µØÖ·
+     * è®¾ç½®å½“å‰å‡½æ•°ä½¿ç”¨å†…å­˜çš„èµ·å§‹åœ°å€
+     * @param addr èµ·å§‹åœ°å€
      */
     public void setRegionStartAddr(int addr) {
         regionStartAddr = addr;
     }
 
     /**
-     * µÃµ½µ±Ç°ËùÔÚº¯ÊıÊ¹ÓÃÄÚ´æÇøÓòµÄ½áÊøµØÖ·(²»°üÀ¨)
+     * å¾—åˆ°å½“å‰æ‰€åœ¨å‡½æ•°ä½¿ç”¨å†…å­˜åŒºåŸŸçš„ç»“æŸåœ°å€(ä¸åŒ…æ‹¬)
      * @return startAddr
      */
     public int getRegionEndAddr() {
@@ -38,8 +38,8 @@ public final class RuntimeRam implements Ram {
     }
 
     /**
-     * ÉèÖÃµ±Ç°º¯ÊıÊ¹ÓÃÄÚ´æµÄ½áÊøµØÖ·
-     * @param addr ÆğÊ¼µØÖ·
+     * è®¾ç½®å½“å‰å‡½æ•°ä½¿ç”¨å†…å­˜çš„ç»“æŸåœ°å€
+     * @param addr èµ·å§‹åœ°å€
      */
     public void setRegionEndAddr(int addr) {
         regionEndAddr = addr;

@@ -1,26 +1,26 @@
 package eastsun.jgvm.module.event;
 
 /**
- * ÓÃÓÚÃèÊöÒ»¸ö¾ØĞÎÇøÓòµÄÀà,¸ÃÀàÎªimmutable<p>
- * µ±getWidth()»ògetHeight()ÓĞÒ»¸ö²»´óÓÚ0Ê±,±íÊ¾Ò»¸ö¿ÕµÄÇøÓò
+ * ç”¨äºæè¿°ä¸€ä¸ªçŸ©å½¢åŒºåŸŸçš„ç±»,è¯¥ç±»ä¸ºimmutable<p>
+ * å½“getWidth()æˆ–getHeight()æœ‰ä¸€ä¸ªä¸å¤§äº0æ—¶,è¡¨ç¤ºä¸€ä¸ªç©ºçš„åŒºåŸŸ
  * @author Eastsun
  * @version 2008-2-24
  */
 public final class Area {
 
     /**
-     * Ò»¸öArea³£Á¿£¬Æäx,y,width,height¶¼Îª0
+     * ä¸€ä¸ªAreaå¸¸é‡ï¼Œå…¶x,y,width,heightéƒ½ä¸º0
      */
     public static final Area EMPTY_AREA = new Area(0, 0, 0, 0);
     private int x,  y,  width,  height;
     private boolean empty;
 
     /**
-     * ¹¹Ôìº¯Êı
-     * @param x     ÇøÓòÆğÊ¼xÖµ
-     * @param y     ÇøÓòÆğÊ¼yÖµ
-     * @param width ÇøÓòµÄ¿í¶È
-     * @param height ÇøÓòµÄ¸ß¶È
+     * æ„é€ å‡½æ•°
+     * @param x     åŒºåŸŸèµ·å§‹xå€¼
+     * @param y     åŒºåŸŸèµ·å§‹yå€¼
+     * @param width åŒºåŸŸçš„å®½åº¦
+     * @param height åŒºåŸŸçš„é«˜åº¦
      */
     public Area(int x, int y, int width, int height) {
         this.x = x;
@@ -31,7 +31,7 @@ public final class Area {
     }
 
     /**
-     * ÅĞ¶ÏÕâ¸öAreaÊÇ·ñÎª¿Õ
+     * åˆ¤æ–­è¿™ä¸ªAreaæ˜¯å¦ä¸ºç©º
      * @return empty
      */
     public boolean isEmpty() {

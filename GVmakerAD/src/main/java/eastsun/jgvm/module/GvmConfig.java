@@ -1,7 +1,7 @@
 package eastsun.jgvm.module;
 
 /**
- * GVMµÄÅäÖÃ²ÎÊı,ÓÃÓÚÖ¸¶¨GVMÊµÀıµÄ¸÷Ïî²ÎÊı,immutable
+ * GVMçš„é…ç½®å‚æ•°,ç”¨äºæŒ‡å®šGVMå®ä¾‹çš„å„é¡¹å‚æ•°,immutable
  * @author Eastsun
  * @version 1.0 2008/2/1
  */
@@ -10,18 +10,18 @@ public final class GvmConfig {
     private int runtimeRamSize,  stringRamSize,  stackSize,  version;
 
     /**
-     * Ä¬ÈÏµÄJLVMÅäÖÃ
+     * é»˜è®¤çš„JLVMé…ç½®
      */
     public GvmConfig() {
         this(0x6000, 1024, 512, 0x10);
     }
 
     /**
-     * ¹¹Ôìº¯Êı
-     * @param runtimeRamSize ÔËĞĞÄÚ´æ´óĞ¡
-     * @param stringRamSize ×Ö·û¶ÑÄÚ´æ´óĞ¡
-     * @param stackSize     Õ»´óĞ¡
-     * @param version GVMµÄ°æ±¾
+     * æ„é€ å‡½æ•°
+     * @param runtimeRamSize è¿è¡Œå†…å­˜å¤§å°
+     * @param stringRamSize å­—ç¬¦å †å†…å­˜å¤§å°
+     * @param stackSize     æ ˆå¤§å°
+     * @param version GVMçš„ç‰ˆæœ¬
      */
     public GvmConfig(int runtimeRamSize, int stringRamSize, int stackSize, int version) {
         this.runtimeRamSize = runtimeRamSize;
@@ -43,7 +43,7 @@ public final class GvmConfig {
     }
 
     /**
-     * µÃµ½GVMµÄ°æ±¾
+     * å¾—åˆ°GVMçš„ç‰ˆæœ¬
      * @return version
      */
     public int version() {

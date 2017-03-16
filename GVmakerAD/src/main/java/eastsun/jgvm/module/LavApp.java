@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * ·â×°Ò»¸ö¿ÉÖ´ĞĞµÄlav³ÌĞòÊı¾İ,ÆäÄÚ²¿Î¬³ÖÒ»¸öÎÄ¼şÖ¸Õë
+ * å°è£…ä¸€ä¸ªå¯æ‰§è¡Œçš„lavç¨‹åºæ•°æ®,å…¶å†…éƒ¨ç»´æŒä¸€ä¸ªæ–‡ä»¶æŒ‡é’ˆ
  * @author Eastsun
  */
 public abstract class LavApp {
@@ -14,18 +14,18 @@ public abstract class LavApp {
     private int offset;
 
     /**
-     * Í¨¹ıÒ»¸öÊäÈëÁ÷´´½¨Ò»¸öLavApp¶ÔÏó
-     * @param in Ò»¸öÊäÈëÁ÷
-     * @return Ò»¸öLavApp¶ÔÏó
-     * @throws java.lang.IllegalArgumentException ·¢ÉúIO´íÎó»òÊı¾İ¸ñÊ½²»ÕıÈ·
+     * é€šè¿‡ä¸€ä¸ªè¾“å…¥æµåˆ›å»ºä¸€ä¸ªLavAppå¯¹è±¡
+     * @param in ä¸€ä¸ªè¾“å…¥æµ
+     * @return ä¸€ä¸ªLavAppå¯¹è±¡
+     * @throws java.lang.IllegalArgumentException å‘ç”ŸIOé”™è¯¯æˆ–æ•°æ®æ ¼å¼ä¸æ­£ç¡®
      */
     public static LavApp createLavApp(InputStream in) throws IllegalArgumentException {
         return new DefaultLavApp(in);
     }
 
     /**
-     * Í¨¹ıÒ»¸ölav³ÌĞòÊı¾İÀ´´´½¨Ò»¸öLavApp<p>
-     * ×¢Òâ,LavAppÄÚ²¿Ê¹ÓÃµÄ¾ÍÊÇ¸ÃÊı×é,Àà´´½¨ºó²»ÄÜ´ÓÍâ²¿ĞŞ¸ÄÕâ¸öÊı×é
+     * é€šè¿‡ä¸€ä¸ªlavç¨‹åºæ•°æ®æ¥åˆ›å»ºä¸€ä¸ªLavApp<p>
+     * æ³¨æ„,LavAppå†…éƒ¨ä½¿ç”¨çš„å°±æ˜¯è¯¥æ•°ç»„,ç±»åˆ›å»ºåä¸èƒ½ä»å¤–éƒ¨ä¿®æ”¹è¿™ä¸ªæ•°ç»„
      * @param data
      * @throws java.lang.IllegalArgumentException
      */
@@ -35,23 +35,23 @@ public abstract class LavApp {
     }
 
     /**
-     * lav³ÌĞòÊı¾İ´óĞ¡(×Ö½ÚÊı)
-     * @return size Õâ¸ölav³ÌĞòÊı¾İµÄ×Ü´óĞ¡,º¬ÎÄ¼şÍ·
+     * lavç¨‹åºæ•°æ®å¤§å°(å­—èŠ‚æ•°)
+     * @return size è¿™ä¸ªlavç¨‹åºæ•°æ®çš„æ€»å¤§å°,å«æ–‡ä»¶å¤´
      */
     public final int size() {
         return appData.length;
     }
 
     /**
-     * ÔÚpointer´¦¶ÁÈ¡Ò»×Ö½ÚÊı¾İ,²¢Ê¹pointer¼ÓÒ»<p>
-     * ×¢Òâ,ÕâÀï·µ»ØÖµÊÇcharÀàĞÍ,¶ÔÓ¦lavµÄcharÀàĞÍ,ÒòÎªlavµÄcharÀàĞÍÊÇÎŞ·ûºÅµÄ.
+     * åœ¨pointerå¤„è¯»å–ä¸€å­—èŠ‚æ•°æ®,å¹¶ä½¿pointeråŠ ä¸€<p>
+     * æ³¨æ„,è¿™é‡Œè¿”å›å€¼æ˜¯charç±»å‹,å¯¹åº”lavçš„charç±»å‹,å› ä¸ºlavçš„charç±»å‹æ˜¯æ— ç¬¦å·çš„.
      */
     public final char getChar() {
         return (char) (appData[offset++] & 0xff);
     }
 
     /**
-     * ´ÓappÖĞ¶ÁÈ¡Á½×Ö½ÚÊı¾İ,¶ÔÓ¦lavÖĞµÄintÀàĞÍ
+     * ä»appä¸­è¯»å–ä¸¤å­—èŠ‚æ•°æ®,å¯¹åº”lavä¸­çš„intç±»å‹
      * @return int
      */
     public final short getInt() {
@@ -62,7 +62,7 @@ public abstract class LavApp {
     }
 
     /**
-     * ´ÓappÖĞ¶ÁÈ¡Èı×Ö½ÚÊı¾İ(ÎŞ·ûºÅ),¶ÔÓ¦lavÖĞÎÄ¼şÖ¸ÕëÊı¾İ
+     * ä»appä¸­è¯»å–ä¸‰å­—èŠ‚æ•°æ®(æ— ç¬¦å·),å¯¹åº”lavä¸­æ–‡ä»¶æŒ‡é’ˆæ•°æ®
      */
     public final int getAddr() {
         int addr;
@@ -73,7 +73,7 @@ public abstract class LavApp {
     }
 
     /**
-     * ´ÓappÖĞ¶ÁÈ¡ËÄ×Ö½ÚÊı¾İ,¶ÔÓ¦lavÖĞµÄlongÀàĞÍ
+     * ä»appä¸­è¯»å–å››å­—èŠ‚æ•°æ®,å¯¹åº”lavä¸­çš„longç±»å‹
      */
     public final int getLong() {
         int i;
@@ -85,15 +85,15 @@ public abstract class LavApp {
     }
 
     /**
-     * µÃµ½µ±Ç°Êı¾İÆ«ÒÆÁ¿
-     * @return pointer ÏÂ´Î¶ÁÈ¡Ê±µÄÎ»ÖÃ
+     * å¾—åˆ°å½“å‰æ•°æ®åç§»é‡
+     * @return pointer ä¸‹æ¬¡è¯»å–æ—¶çš„ä½ç½®
      */
     public final int getOffset() {
         return offset;
     }
 
-    /** ÉèÖÃ¶ÁÈ¡Æ«ÒÆÁ¿
-     * @param pos Æ«ÒÆÁ¿,ÏÂ´Î¶ÁÈ¡Êı¾İÊ±¿ªÊ¼Î»ÖÃ
+    /** è®¾ç½®è¯»å–åç§»é‡
+     * @param pos åç§»é‡,ä¸‹æ¬¡è¯»å–æ•°æ®æ—¶å¼€å§‹ä½ç½®
      */
     public final void setOffset(int pos) {
         offset = pos;
@@ -108,7 +108,7 @@ public abstract class LavApp {
         /**
          * 2008.3.5<p>
          * bug fixed<p>
-         * J2MEÖĞÄ³Ğ©InputStreamµÄavailable·½·¨×ÜÊÇ·µ»Ø0
+         * J2MEä¸­æŸäº›InputStreamçš„availableæ–¹æ³•æ€»æ˜¯è¿”å›0
          */
         private static byte[] getDataByInputStream(InputStream in) {
             ByteArrayOutputStream bos = new ByteArrayOutputStream();
@@ -132,16 +132,16 @@ public abstract class LavApp {
     }
 
     /**
-     * ¼ì²éÊı¾İ¸ñÊ½²¢ÉèÖÃÏàÓ¦²ÎÊı
-     * @param data Ò»¸ölavAppÊı¾İ
-     * @throws java.lang.IllegalArgumentException ²»ÕıÈ·µÄlava¸ñÊ½
+     * æ£€æŸ¥æ•°æ®æ ¼å¼å¹¶è®¾ç½®ç›¸åº”å‚æ•°
+     * @param data ä¸€ä¸ªlavAppæ•°æ®
+     * @throws java.lang.IllegalArgumentException ä¸æ­£ç¡®çš„lavaæ ¼å¼
      */
     private void verifyData() throws IllegalArgumentException {
         if (appData.length <= 16) {
-            throw new IllegalArgumentException("²»ÊÇÓĞĞ§µÄLAVÎÄ¼ş!");
+            throw new IllegalArgumentException("ä¸æ˜¯æœ‰æ•ˆçš„LAVæ–‡ä»¶!");
         }
         if (appData[0] != 0x4c || appData[1] != 0x41 || appData[2] != 0x56) {
-            throw new IllegalArgumentException("²»ÊÇÓĞĞ§µÄLAVÎÄ¼ş!");
+            throw new IllegalArgumentException("ä¸æ˜¯æœ‰æ•ˆçš„LAVæ–‡ä»¶!");
         }
         offset = 16;
     }

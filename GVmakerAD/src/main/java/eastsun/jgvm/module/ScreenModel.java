@@ -5,24 +5,24 @@ import eastsun.jgvm.module.event.ScreenChangeListener;
 import eastsun.jgvm.module.ram.RelativeRam;
 
 /**
- * ÆÁÄ»Ä£¿é,¸ÃÄ£¿é±£Áô¶ÔÏÔ´æ¼°»º³åÇø·ÃÎÊµÄ¿ÉÑ¡ÊµÏÖ
- * @version 0.7 2007/1/21  ĞŞ¸ÄÁËÍâ²¿µÃµ½ÆÁÄ»ÄÚÈİµÄ½Ó¿Ú<p>
- *               2008/2/24  ÔÙ´ÎĞŞ¸Ä»ñµÃÆÁÄ»ÄÚÈİµÄ½Ó¿Ú,Ö÷ÒªÄ¿µÄÊÇÓÅ»¯Ë¢ÆÁËÙ¶È
+ * å±å¹•æ¨¡å—,è¯¥æ¨¡å—ä¿ç•™å¯¹æ˜¾å­˜åŠç¼“å†²åŒºè®¿é—®çš„å¯é€‰å®ç°
+ * @version 0.7 2007/1/21  ä¿®æ”¹äº†å¤–éƒ¨å¾—åˆ°å±å¹•å†…å®¹çš„æ¥å£<p>
+ *               2008/2/24  å†æ¬¡ä¿®æ”¹è·å¾—å±å¹•å†…å®¹çš„æ¥å£,ä¸»è¦ç›®çš„æ˜¯ä¼˜åŒ–åˆ·å±é€Ÿåº¦
  * @author Eastsun
  */
 public abstract class ScreenModel {
 
     /**
-     * ÆÁÄ»¿í¶È
+     * å±å¹•å®½åº¦
      */
     public static final int WIDTH = 160;
     /**
-     * ÆÁÄ»¸ß¶È
+     * å±å¹•é«˜åº¦
      */
     public static final int HEIGHT = 80;
 
     /**
-     * ´´½¨Ò»¸öScreenModelÊµÀı
+     * åˆ›å»ºä¸€ä¸ªScreenModelå®ä¾‹
      */
     public static ScreenModel newScreenModel() {
         return new ScreenModelImp();
@@ -34,8 +34,8 @@ public abstract class ScreenModel {
     }
 
     /**
-     * ÎªScreenÌí¼Ó¼àÌıÆ÷,µ±ScreenµÄGraph×´Ì¬·¢Éú±ä»¯Ê±·¢Éú±ä»¯Ê±½«¼¤·¢ÊÂ¼ş
-     * @param listener ÊÂ¼ş¼àÌıÆ÷
+     * ä¸ºScreenæ·»åŠ ç›‘å¬å™¨,å½“Screençš„GraphçŠ¶æ€å‘ç”Ÿå˜åŒ–æ—¶å‘ç”Ÿå˜åŒ–æ—¶å°†æ¿€å‘äº‹ä»¶
+     * @param listener äº‹ä»¶ç›‘å¬å™¨
      */
     public final void addScreenChangeListener(ScreenChangeListener listener) {
         ScreenChangeListener[] oldValue = lis;
@@ -48,7 +48,7 @@ public abstract class ScreenModel {
     }
 
     /**
-     * Í¨ÖªÆÁÄ»¼àÌıÆ÷
+     * é€šçŸ¥å±å¹•ç›‘å¬å™¨
      */
     public final void fireScreenChanged() {
         for (int index = 0; index < lis.length; index++) {
@@ -58,7 +58,7 @@ public abstract class ScreenModel {
     }
 
     /**
-     * µÃµ½ÆÁÄ»µÄ¿í¶È
+     * å¾—åˆ°å±å¹•çš„å®½åº¦
      * @return width
      */
     public final int getWidth() {
@@ -66,7 +66,7 @@ public abstract class ScreenModel {
     }
 
     /**
-     * µÃµ½ÆÁÄ»µÄ¸ß¶È
+     * å¾—åˆ°å±å¹•çš„é«˜åº¦
      * @return height
      */
     public final int getHeight() {
@@ -74,75 +74,75 @@ public abstract class ScreenModel {
     }
 
     /**
-     * ÉèÖÃÓÃÓÚ±íÊ¾ºÚ°×µÄÑÕÉ«µÄRGBÖµ
-     * @param black ºÚ
-     * @param white °×
+     * è®¾ç½®ç”¨äºè¡¨ç¤ºé»‘ç™½çš„é¢œè‰²çš„RGBå€¼
+     * @param black é»‘
+     * @param white ç™½
      */
     public abstract void setColor(int black, int white);
 
     /**
-     * µÃµ½ÆÁÄ»rgbÊı¾İ<p>
-     * Ô¼¶¨:<p>
-     *     1. bufferµÄ³¤¶ÈÓ¦²»Ğ¡ÓÚgetWidth()*getHeight()*rate*rate<p>
-     *     2. ÍùbufferÌî³äÊı¾İµÄÊ±ºò»á½«buffer¿´³ÉÒ»¸ö(getWidth()*rate)*(getHeight()*rate)(ÕâÖ»Ã»ÓĞĞı×ªµÄÇé¿ö,Ğı×ªµÄÇé¿öÀàËÆ)<p>
-     *        È»ºó½«·¢Éú±ä»¯µÄÇøÓòµÄÊı¾İÌî³äµ½bufferµÄÏàÓ¦Î»ÖÃ,¶ø²»ÊÇ´ÓÊı×é¿ªÊ¼Ìî³ä,Ò²²»Ò»¶¨ÊÇÁ¬ĞøÌî³ä<p>
-     *  2008.2.24ĞŞ¸Ä
-     * @param buffer ÓÃÓÚ±£´æÆÁÄ»rgbÊı¾İµÄintÊı×é,Æä³¤¶ÈÓ¦²»Ğ¡ÓÚ offset+rate*getWidth()*getHeight()
-     * @param area   ĞèÒªµÄµ½Í¼ÏñÊı¾İÔÚÆÁÄ»µÄ·¶Î§
-     * @param rate   Í¼ÏñµÄ·Å´ó±ÈÀı
-     * @param circ   ¿ÉÒÔÎª0,1,2,3.·Ö±ğ±íÊ¾²»Ğı×ª,ÄæÊ±ÕëĞı×ª90¶È,180¶È,270¶È
-     * @return buffer±¾Éí
+     * å¾—åˆ°å±å¹•rgbæ•°æ®<p>
+     * çº¦å®š:<p>
+     *     1. bufferçš„é•¿åº¦åº”ä¸å°äºgetWidth()*getHeight()*rate*rate<p>
+     *     2. å¾€bufferå¡«å……æ•°æ®çš„æ—¶å€™ä¼šå°†bufferçœ‹æˆä¸€ä¸ª(getWidth()*rate)*(getHeight()*rate)(è¿™åªæ²¡æœ‰æ—‹è½¬çš„æƒ…å†µ,æ—‹è½¬çš„æƒ…å†µç±»ä¼¼)<p>
+     *        ç„¶åå°†å‘ç”Ÿå˜åŒ–çš„åŒºåŸŸçš„æ•°æ®å¡«å……åˆ°bufferçš„ç›¸åº”ä½ç½®,è€Œä¸æ˜¯ä»æ•°ç»„å¼€å§‹å¡«å……,ä¹Ÿä¸ä¸€å®šæ˜¯è¿ç»­å¡«å……<p>
+     *  2008.2.24ä¿®æ”¹
+     * @param buffer ç”¨äºä¿å­˜å±å¹•rgbæ•°æ®çš„intæ•°ç»„,å…¶é•¿åº¦åº”ä¸å°äº offset+rate*getWidth()*getHeight()
+     * @param area   éœ€è¦çš„åˆ°å›¾åƒæ•°æ®åœ¨å±å¹•çš„èŒƒå›´
+     * @param rate   å›¾åƒçš„æ”¾å¤§æ¯”ä¾‹
+     * @param circ   å¯ä»¥ä¸º0,1,2,3.åˆ†åˆ«è¡¨ç¤ºä¸æ—‹è½¬,é€†æ—¶é’ˆæ—‹è½¬90åº¦,180åº¦,270åº¦
+     * @return bufferæœ¬èº«
      */
     public abstract int[] getRGB(int[] buffer, Area area, int rate, int circ);
 
     /**
-     * ÊÇ·ñÓĞÏà¹ØÁªµÄÏÔ´æÒÔ¼°ÏÔ´æ»º³åÇøRam
-     * @return µ±ÇÒ½öµ±ÆÁÄ»´óĞ¡Îª160*80Ê±·µ»Øtrue
+     * æ˜¯å¦æœ‰ç›¸å…³è”çš„æ˜¾å­˜ä»¥åŠæ˜¾å­˜ç¼“å†²åŒºRam
+     * @return å½“ä¸”ä»…å½“å±å¹•å¤§å°ä¸º160*80æ—¶è¿”å›true
      */
     public abstract boolean hasRelativeRam();
 
     /**
-     * µÃµ½Óë¸ÃÆÁÄ»ÏÔ´æÏà¹ØÁªµÄRam,¿ÉÒÔ½«Æä°²×°µ½RamManagerÖĞ,ÒÔÊ¹µÃLAVA³ÌĞòÄÜ¹»Ö±½Ó·ÃÎÊÏÔ´æ
-     * @return ram µÃµ½¹ØÁªµÄRam,¸ÃRamµÄÄÚÈİÓëScreenÄÚÈİ±£³ÖÍ¬²½±ä»¯
-     * @throws IllegalStateException Èç¹ûhasRelativeRam()·µ»Øfalse
+     * å¾—åˆ°ä¸è¯¥å±å¹•æ˜¾å­˜ç›¸å…³è”çš„Ram,å¯ä»¥å°†å…¶å®‰è£…åˆ°RamManagerä¸­,ä»¥ä½¿å¾—LAVAç¨‹åºèƒ½å¤Ÿç›´æ¥è®¿é—®æ˜¾å­˜
+     * @return ram å¾—åˆ°å…³è”çš„Ram,è¯¥Ramçš„å†…å®¹ä¸Screenå†…å®¹ä¿æŒåŒæ­¥å˜åŒ–
+     * @throws IllegalStateException å¦‚æœhasRelativeRam()è¿”å›false
      * @see #hasRelativeRam()
      * @see RamManager#install(Ram)
      */
     public abstract RelativeRam getGraphRam();
 
     /**
-     * µÃµ½ÓëÆÁÄ»»º³åÇøÏà¹ØÁªµÄRam,¿ÉÒÔ½«Æä°²×°µ½RamManagerÖĞ,ÒÔÊ¹µÃLAVA³ÌĞòÄÜ¹»Ö±½Ó·ÃÎÊÆÁÄ»»º³åÇø
-     * @return ram µÃµ½¹ØÁªµÄRam,¸ÃRamµÄÄÚÈİÓëScreen»º³åÇøÄÚÈİ±£³ÖÍ¬²½±ä»¯
-     * @throws IllegalStateException Èç¹ûhasRelativeRam()·µ»Øfalse
+     * å¾—åˆ°ä¸å±å¹•ç¼“å†²åŒºç›¸å…³è”çš„Ram,å¯ä»¥å°†å…¶å®‰è£…åˆ°RamManagerä¸­,ä»¥ä½¿å¾—LAVAç¨‹åºèƒ½å¤Ÿç›´æ¥è®¿é—®å±å¹•ç¼“å†²åŒº
+     * @return ram å¾—åˆ°å…³è”çš„Ram,è¯¥Ramçš„å†…å®¹ä¸Screenç¼“å†²åŒºå†…å®¹ä¿æŒåŒæ­¥å˜åŒ–
+     * @throws IllegalStateException å¦‚æœhasRelativeRam()è¿”å›false
      * @see #hasRelativeRam()
      * @see RamManager#install(Ram)
      */
     public abstract RelativeRam getBufferRam();
 
     /**
-     * »ñµÃÆÁÄ»»æÍ¼½Ó¿Ú
+     * è·å¾—å±å¹•ç»˜å›¾æ¥å£
      * @return render
      */
     public abstract Renderable getRender();
 
     /**
-     * ÖØÖÃÃèÊö±ä»¯·¶Î§µÄarea,Ê¹Æä´ÓĞÂ¼ÇÂ¼±ä»¯·¶Î§<p>
-     * Õâ¼¸¸ö¹ØÓÚchangedAreaµÄ·½·¨Ö»Ó¦¸ÃÓÉJGVMÄÚ²¿µÄ×é¼şÊ¹ÓÃ
+     * é‡ç½®æè¿°å˜åŒ–èŒƒå›´çš„area,ä½¿å…¶ä»æ–°è®°å½•å˜åŒ–èŒƒå›´<p>
+     * è¿™å‡ ä¸ªå…³äºchangedAreaçš„æ–¹æ³•åªåº”è¯¥ç”±JGVMå†…éƒ¨çš„ç»„ä»¶ä½¿ç”¨
      * @see #getChangedArea()
      * @see #getRGB(int[],Area,int,int)
      */
     abstract void refreshArea();
 
     /**
-     * µÃµ½·¢Éú¸Ä±äµÄÆÁÄ»·¶Î§<p>
-     * 2008.2.24Ìí¼Ó
+     * å¾—åˆ°å‘ç”Ÿæ”¹å˜çš„å±å¹•èŒƒå›´<p>
+     * 2008.2.24æ·»åŠ 
      * @return area
      */
     abstract Area getChangedArea();
 
     /**
-     * Íù¸Ä±äÇøÓòÌí¼Óadd
-     * @param add ĞÂµÄ¸Ä¶¯µÄÇøÓò
+     * å¾€æ”¹å˜åŒºåŸŸæ·»åŠ add
+     * @param add æ–°çš„æ”¹åŠ¨çš„åŒºåŸŸ
      */
     abstract void addToChangedArea(Area add);
 }

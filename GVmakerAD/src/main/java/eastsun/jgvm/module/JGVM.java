@@ -3,10 +3,10 @@ package eastsun.jgvm.module;
 import eastsun.jgvm.module.event.ScreenChangeListener;
 
 /**
- * ¹æ¶¨ÊµÏÖGVMËùĞèµÄ½Ó¿Ú.×¢Òâ,³ıÁËgetConfig,ÆäËü·½·¨¶¼²»ÊÇÏß³Ì°²È«µÄ<p>
- * ¿ÉÒÔÊ¹ÓÃGVM¼ÓÔØLavApp,È»ºóÖğ²½Ö´ĞĞ<p>
- * ¿ÉÒÔÍ¨¹ısetInputMethod·½·¨ÉèÖÃGVMÊ¹ÓÃµÄÊäÈë·¨,Ä¬ÈÏGVM²»´øÊäÈë·¨,²¢Ê¹ÓÃKeyModel.getchar()·½·¨Ìæ´úÊäÈë·¨¹¦ÄÜ<p>
- * ÏÂÃæÊÇÊ¹ÓÃGVMµÄÒ»ÖÖ¿ÉÄÜµÄ·½Ê½:
+ * è§„å®šå®ç°GVMæ‰€éœ€çš„æ¥å£.æ³¨æ„,é™¤äº†getConfig,å…¶å®ƒæ–¹æ³•éƒ½ä¸æ˜¯çº¿ç¨‹å®‰å…¨çš„<p>
+ * å¯ä»¥ä½¿ç”¨GVMåŠ è½½LavApp,ç„¶åé€æ­¥æ‰§è¡Œ<p>
+ * å¯ä»¥é€šè¿‡setInputMethodæ–¹æ³•è®¾ç½®GVMä½¿ç”¨çš„è¾“å…¥æ³•,é»˜è®¤GVMä¸å¸¦è¾“å…¥æ³•,å¹¶ä½¿ç”¨KeyModel.getchar()æ–¹æ³•æ›¿ä»£è¾“å…¥æ³•åŠŸèƒ½<p>
+ * ä¸‹é¢æ˜¯ä½¿ç”¨GVMçš„ä¸€ç§å¯èƒ½çš„æ–¹å¼:
  * <p><hr><blockquote><pre>
  *     ...
  *     gvm =JGVM.newGVM(config,fileModel,keyMode);
@@ -29,72 +29,72 @@ import eastsun.jgvm.module.event.ScreenChangeListener;
  *      });
  *      t.start();
  * </pre></blockquote><hr><p>
- * Èç¹ûÏëÇ¿ÖÆÍË³öÒ»¸öÖ´ĞĞÖĞµÄgvm,µ÷ÓÃÔËĞĞÕâ¸ögvmµÄÏß³ÌtµÄinterrupt()·½·¨<p>
+ * å¦‚æœæƒ³å¼ºåˆ¶é€€å‡ºä¸€ä¸ªæ‰§è¡Œä¸­çš„gvm,è°ƒç”¨è¿è¡Œè¿™ä¸ªgvmçš„çº¿ç¨‹tçš„interrupt()æ–¹æ³•<p>
  * @author Eastsun
  * @version 2008-1-14
  */
 public abstract class JGVM {
 
     /**
-     * ¹¤³§·½·¨,Í¨¹ı¸ø¶¨µÄÅäÖÃµÃµ½Ò»¸öGVM
-     * @param config ÅäÖÃ
-     * @return Ò»¸öĞÂµÄGVMÊµÀı
-     * @exception IllegalStateException ²»Ö§³Ö¸ÃÅäÖÃµÄGVM
+     * å·¥å‚æ–¹æ³•,é€šè¿‡ç»™å®šçš„é…ç½®å¾—åˆ°ä¸€ä¸ªGVM
+     * @param config é…ç½®
+     * @return ä¸€ä¸ªæ–°çš„GVMå®ä¾‹
+     * @exception IllegalStateException ä¸æ”¯æŒè¯¥é…ç½®çš„GVM
      */
     public static JGVM newGVM(GvmConfig config, FileModel fileModel, KeyModel keyModel) throws IllegalStateException {
-        //µ±Ç°ÊµÏÖºöÂÔGvmConfigµÄversion²ÎÊı,×ÜÊÇ·µ»ØÒ»¸öGVM1.0µÄÊµÀı
+        //å½“å‰å®ç°å¿½ç•¥GvmConfigçš„versionå‚æ•°,æ€»æ˜¯è¿”å›ä¸€ä¸ªGVM1.0çš„å®ä¾‹
         return new DefaultGVM(config, fileModel, keyModel);
     }
 
     /**
-     * ÔØÈëÒ»¸öapp,²¢×öÊÊµ±µÄ³õÊ¼»¯<p>
-     * Èç¹ûÒÑ¾­¼ÓÔØ,ÔòÊÍ·ÅÖ®Ç°µÄapp<p>
-     * @param app ĞèÒª¼ÓÔØµÄapp
-     * @throws IllegalStateException ²»Ö§³ÖµÄapp
+     * è½½å…¥ä¸€ä¸ªapp,å¹¶åšé€‚å½“çš„åˆå§‹åŒ–<p>
+     * å¦‚æœå·²ç»åŠ è½½,åˆ™é‡Šæ”¾ä¹‹å‰çš„app<p>
+     * @param app éœ€è¦åŠ è½½çš„app
+     * @throws IllegalStateException ä¸æ”¯æŒçš„app
      */
     public abstract void loadApp(LavApp app) throws IllegalStateException;
 
     /**
-     * Ğ¶ÔØÔËĞĞµÄapp,²¢ÊÍ·ÅÆäÕ¼ÓÃµÄ×ÊÔ´
+     * å¸è½½è¿è¡Œçš„app,å¹¶é‡Šæ”¾å…¶å ç”¨çš„èµ„æº
      */
     public abstract void dispose();
 
     /**
-     * Ö´ĞĞÏÂÒ»¸öÖ¸Áî,¸Ã·½·¨¿ÉÄÜ»á×èÈû
-     * @throws java.lang.IllegalStateException ³ÌĞòÒÑ¾­½áÊø»ò²»Ö§³ÖµÄ²Ù×÷
-     * @throws InterruptedException Ö´ĞĞÆÚ¼ä±»ÆäËûÏß³ÌÖĞ¶Ï
+     * æ‰§è¡Œä¸‹ä¸€ä¸ªæŒ‡ä»¤,è¯¥æ–¹æ³•å¯èƒ½ä¼šé˜»å¡
+     * @throws java.lang.IllegalStateException ç¨‹åºå·²ç»ç»“æŸæˆ–ä¸æ”¯æŒçš„æ“ä½œ
+     * @throws InterruptedException æ‰§è¡ŒæœŸé—´è¢«å…¶ä»–çº¿ç¨‹ä¸­æ–­
      */
     public abstract void nextStep() throws IllegalStateException, InterruptedException;
 
     /**
-     * ³ÌĞòÊÇ·ñÕı³£½áÊø,Èç¹ûÃ»ÓĞ¼ÓÔØapp,×ÜÊÇ·µ»Øtrue
-     * @return ³ÌĞòÔËĞĞÊÇ·ñÒÑ¾­Õı³£½áÊø
+     * ç¨‹åºæ˜¯å¦æ­£å¸¸ç»“æŸ,å¦‚æœæ²¡æœ‰åŠ è½½app,æ€»æ˜¯è¿”å›true
+     * @return ç¨‹åºè¿è¡Œæ˜¯å¦å·²ç»æ­£å¸¸ç»“æŸ
      */
     public abstract boolean isEnd();
 
     /**
-     * ÉèÖÃGVMÆÁÄ»ÏÔÊ¾µÄÑÕÉ«
-     * @param black ºÚ
-     * @param white °×
+     * è®¾ç½®GVMå±å¹•æ˜¾ç¤ºçš„é¢œè‰²
+     * @param black é»‘
+     * @param white ç™½
      */
     public abstract void setColor(int black, int white);
 
     /**
-     * ÉèÖÃ¸ÃGVMÊ¹ÓÃµÄÊäÈë·¨,¿ÉÒÔÎªnull
-     * @param im ¸ÃGVMÊ¹ÓÃµÄÊäÈë·¨
-     * @return  ¸ÃGVMÖ®Ç°Ê¹ÓÃµÄÊäÈë·¨
+     * è®¾ç½®è¯¥GVMä½¿ç”¨çš„è¾“å…¥æ³•,å¯ä»¥ä¸ºnull
+     * @param im è¯¥GVMä½¿ç”¨çš„è¾“å…¥æ³•
+     * @return  è¯¥GVMä¹‹å‰ä½¿ç”¨çš„è¾“å…¥æ³•
      */
     public abstract InputMethod setInputMethod(InputMethod im);
 
     /**
-     * Ìí¼ÓĞéÄâ»úÆÁÄ»×´Ì¬¼àÌıÆ÷
-     * @param listener ÆÁÄ»¼àÌıÆ÷
+     * æ·»åŠ è™šæ‹Ÿæœºå±å¹•çŠ¶æ€ç›‘å¬å™¨
+     * @param listener å±å¹•ç›‘å¬å™¨
      * @see ScreenModel#addScreenChangeListener(ScreenChangeListener)
      */
     public abstract void addScreenChangeListener(ScreenChangeListener listener);
 
     /**
-     * µÃµ½¸ÃGVMµÄÅäÖÃ
+     * å¾—åˆ°è¯¥GVMçš„é…ç½®
      * @return config
      */
     public abstract GvmConfig getConfig();

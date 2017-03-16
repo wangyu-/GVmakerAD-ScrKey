@@ -1,44 +1,44 @@
 package eastsun.jgvm.module;
 
 /**
- * ÊäÈë·¨½Ó¿Ú<p>
- * ×¢Òâ: ²»Í¬µÄJGVMÊµÀıÓ¦¸ÃÊ¹ÓÃ²»Í¬µÄInputMethodÊµÀı
+ * è¾“å…¥æ³•æ¥å£<p>
+ * æ³¨æ„: ä¸åŒçš„JGVMå®ä¾‹åº”è¯¥ä½¿ç”¨ä¸åŒçš„InputMethodå®ä¾‹
  * @author Eastsun
  * @version 2008-2-21
  */
 public interface InputMethod {
 
     /**
-     * Ä¬ÈÏÊäÈëÓ¢ÎÄ×ÖÄ¸
+     * é»˜è®¤è¾“å…¥è‹±æ–‡å­—æ¯
      */
     public static final int ENGLISH_MODE = 0;
     /**
-     * Ä¬ÈÏÊäÈëÎªÊı×Ö
+     * é»˜è®¤è¾“å…¥ä¸ºæ•°å­—
      */
     public static final int NUMBER_MODE = 1;
     /**
-     * Ä¬ÈÏÊäÈëÎªºº×Ö
+     * é»˜è®¤è¾“å…¥ä¸ºæ±‰å­—
      */
     public static final int GB2312_MODE = 2;
     /**
-     * ±£³ÖÖ®Ç°µÄÊäÈëÄ£Ê½
+     * ä¿æŒä¹‹å‰çš„è¾“å…¥æ¨¡å¼
      */
     public static final int DEFAULT_MODE = 3;
 
     /**
-     * Í¨¹ı½ÓÊÜ¼üÅÌ²Ù×÷²¢ÊÊµ±·´À¡ĞÅÏ¢µ½ÆÁÄ»¶øµÃµ½ÓÃ»§ÊäÈëµÄĞÅÏ¢<p>
-     * ¸Ã·½·¨Ê¹ÓÃÆÁÄ»µ×²¿12ĞĞµÄÄÚÈİÓÃÓÚ·´À¡ĞÅÏ¢
-     * @param key ÓÃÓÚ»ñµÃÓÃ»§°´¼ü
-     * @param screen ÓÃÓÚ·´À¡²Ù×÷¹ı³ÌÖĞµÄĞÅÏ¢
-     * @return Ò»¸ögb2312±àÂëµÄ×Ö·û
-     * @throws InterruptedException ÆÚ¼äÏß³Ì±»ÖĞ¶Ï
+     * é€šè¿‡æ¥å—é”®ç›˜æ“ä½œå¹¶é€‚å½“åé¦ˆä¿¡æ¯åˆ°å±å¹•è€Œå¾—åˆ°ç”¨æˆ·è¾“å…¥çš„ä¿¡æ¯<p>
+     * è¯¥æ–¹æ³•ä½¿ç”¨å±å¹•åº•éƒ¨12è¡Œçš„å†…å®¹ç”¨äºåé¦ˆä¿¡æ¯
+     * @param key ç”¨äºè·å¾—ç”¨æˆ·æŒ‰é”®
+     * @param screen ç”¨äºåé¦ˆæ“ä½œè¿‡ç¨‹ä¸­çš„ä¿¡æ¯
+     * @return ä¸€ä¸ªgb2312ç¼–ç çš„å­—ç¬¦
+     * @throws InterruptedException æœŸé—´çº¿ç¨‹è¢«ä¸­æ–­
      */
     public char getWord(KeyModel key, ScreenModel screen) throws InterruptedException;
     
     /**
-     * ÉèÖÃ¸ÃÊäÈë·¨µÄÄ¬ÈÏÊäÈëÄ£Ê½
-     * @param mode ÊäÈëÄ£Ê½
-     * @return Ö®Ç°Ê¹ÓÃµÄÊäÈëÄ£Ê½
+     * è®¾ç½®è¯¥è¾“å…¥æ³•çš„é»˜è®¤è¾“å…¥æ¨¡å¼
+     * @param mode è¾“å…¥æ¨¡å¼
+     * @return ä¹‹å‰ä½¿ç”¨çš„è¾“å…¥æ¨¡å¼
      */
     public int setMode(int mode);
 }

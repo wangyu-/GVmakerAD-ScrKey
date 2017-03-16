@@ -13,7 +13,7 @@ import java.net.URL;
 import android.R;
 
 /**
- * Ò»¸ö¹¤¾ßÀà,Ö÷ÒªÌá¹©×Ö·ûµãÕó¿âÒÔ¼°Ò»Ğ©ÊµÓÃ·½·¨
+ * ä¸€ä¸ªå·¥å…·ç±»,ä¸»è¦æä¾›å­—ç¬¦ç‚¹é˜µåº“ä»¥åŠä¸€äº›å®ç”¨æ–¹æ³•
  * @author Eastsun
  * @version 2008/1/22
  */
@@ -24,7 +24,7 @@ public final class Util {
     }
 
     /**
-     * µÃµ½src´Óaddr¿ªÊ¼µÄlength¸ö×Ö½ÚµÄcrc16Âë
+     * å¾—åˆ°srcä»addrå¼€å§‹çš„lengthä¸ªå­—èŠ‚çš„crc16ç 
      */
     public static char getCrc16Value(Getable src, int addr, int length) {
         char crc = 0, tmp;
@@ -45,7 +45,7 @@ public final class Util {
     };
 
     /**
-     * ´ÓPropertiesÖĞµÃµ½GVMÏµÍ³°´¼üĞÅÏ¢
+     * ä»Propertiesä¸­å¾—åˆ°GVMç³»ç»ŸæŒ‰é”®ä¿¡æ¯
      */
     public static KeyModel.SysInfo loadFromProperties(final Properties pp) {
         return new KeyModel.SysInfo() {
@@ -116,15 +116,15 @@ public final class Util {
     }
 
     /**
-     * ´Ó°´¼üÅäÖÃÎÄ¼şÖĞ½âÎö³öKeyMap<p>
-     * ÅäÖÃÎÄ¼ş¸ñÊ½:<p>
-     *     1.»ù±¾¸ñÊ½: [×¢ÊÍ] ÏµÍ³KeyÖµ=GVM¶ÔÓ¦KeyÖµ [×¢ÊÍ]\n
-     *       ±íÊ¾½«ÏµÍ³ÉÏµÄ°´¼üÖµÎª{ÏµÍ³KeyÖµ}µÄ¶ÔÓ¦µ½GVMÉÏ°´¼üÖµ{GVM¶ÔÓ¦KeyÖµ}
-     *     2.¹ØÓÚ×¢ÊÍ: ÅäÖÃÎÄ¼şÖĞÔÊĞíÓĞ×¢ÊÍ,½âÎöÊ±»áÌø¹ı×¢ÊÍ²¿·Ö,×¢ÊÍ¸ñÊ½ÓëC++ÖĞµÄ×¢ÊÍ¸ñÊ½ÏàÍ¬
-     *     3.×¢ÒâÊÂÏî: Ã¿ĞĞ×î¶àÖ»ÄÜÓĞÒ»¸öÅäÖÃÏî,(¼´{ÏµÍ³KeyÖµ=GVM¶ÔÓ¦KeyÖµ}),ÅäÖÃÏîÇ°ºó¿ÉÒÔ´øÓĞ×¢ÊÍ,µ«×¢ÊÍÏîÖĞ¼ä²»ÄÜ»ìÓĞ×¢ÊÍ
-     * @param in ÓÃÓÚ½âÎöµÄÊäÈëÁ÷
-     * @return ½âÎö³öµÄKeyMap
-     * @throws java.io.IOException ·¢ÉúIO´íÎó
+     * ä»æŒ‰é”®é…ç½®æ–‡ä»¶ä¸­è§£æå‡ºKeyMap<p>
+     * é…ç½®æ–‡ä»¶æ ¼å¼:<p>
+     *     1.åŸºæœ¬æ ¼å¼: [æ³¨é‡Š] ç³»ç»ŸKeyå€¼=GVMå¯¹åº”Keyå€¼ [æ³¨é‡Š]\n
+     *       è¡¨ç¤ºå°†ç³»ç»Ÿä¸Šçš„æŒ‰é”®å€¼ä¸º{ç³»ç»ŸKeyå€¼}çš„å¯¹åº”åˆ°GVMä¸ŠæŒ‰é”®å€¼{GVMå¯¹åº”Keyå€¼}
+     *     2.å…³äºæ³¨é‡Š: é…ç½®æ–‡ä»¶ä¸­å…è®¸æœ‰æ³¨é‡Š,è§£ææ—¶ä¼šè·³è¿‡æ³¨é‡Šéƒ¨åˆ†,æ³¨é‡Šæ ¼å¼ä¸C++ä¸­çš„æ³¨é‡Šæ ¼å¼ç›¸åŒ
+     *     3.æ³¨æ„äº‹é¡¹: æ¯è¡Œæœ€å¤šåªèƒ½æœ‰ä¸€ä¸ªé…ç½®é¡¹,(å³{ç³»ç»ŸKeyå€¼=GVMå¯¹åº”Keyå€¼}),é…ç½®é¡¹å‰åå¯ä»¥å¸¦æœ‰æ³¨é‡Š,ä½†æ³¨é‡Šé¡¹ä¸­é—´ä¸èƒ½æ··æœ‰æ³¨é‡Š
+     * @param in ç”¨äºè§£æçš„è¾“å…¥æµ
+     * @return è§£æå‡ºçš„KeyMap
+     * @throws java.io.IOException å‘ç”ŸIOé”™è¯¯
      */
     public static KeyMap parseKeyMap(InputStream in) throws IOException {
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
@@ -181,10 +181,10 @@ public final class Util {
     }
 
     /**
-     * Ìø¹ı×¢ÊÍ²¿·Ö
+     * è·³è¿‡æ³¨é‡Šéƒ¨åˆ†
      * @param data
      * @param offset
-     * @return Èç¹ûÓĞ×¢ÊÍ,·µ»Ø×¢ÊÍ×Ü³¤¶È;·ñÔò·µ»Ø0
+     * @return å¦‚æœæœ‰æ³¨é‡Š,è¿”å›æ³¨é‡Šæ€»é•¿åº¦;å¦åˆ™è¿”å›0
      */
     private static int skipComment(byte[] data, int offset) {
         int start = offset;
@@ -209,8 +209,8 @@ public final class Util {
     }
 
     /**
-     * ½âÎöÒ»¸öbyteĞÎÊ½µÄ×Ö·û´®Îªint,Õâ¸öbyteÊı×é¿ªÊ¼Óë½áÎ²¿ÉÄÜ´æÔÚ¶àÓàµÄ×Ö·û
-     * @return ½âÎö½á¹û
+     * è§£æä¸€ä¸ªbyteå½¢å¼çš„å­—ç¬¦ä¸²ä¸ºint,è¿™ä¸ªbyteæ•°ç»„å¼€å§‹ä¸ç»“å°¾å¯èƒ½å­˜åœ¨å¤šä½™çš„å­—ç¬¦
+     * @return è§£æç»“æœ
      */
     private static int parseInt(byte[] data, int start, int end) {
         int mark = -1, count = 0;
@@ -218,7 +218,7 @@ public final class Util {
             if (data[index] == '\'') {
                 count++;
                 if (count > 2 || (count == 2 && index != mark + 2)) {
-                    throw new IllegalArgumentException("°´¼üÅäÖÃÎÄ¼ş´íÎó!" + count + "," + index + "," + mark);
+                    throw new IllegalArgumentException("æŒ‰é”®é…ç½®æ–‡ä»¶é”™è¯¯!" + count + "," + index + "," + mark);
                 }
                 if (count == 1) {
                     mark = index;
@@ -277,9 +277,9 @@ public final class Util {
     }
 
     /**
-     * ½«Ò»¸öÕûÊı»¯×÷gb2312±àÂëµÄ×Ö·û´®Êı¾İ
-     * @param i Ò»¸öÕûÊıÖµ
-     * @return Ò»¸ö±íÊ¾gb2312±àÂëµÄbyteÊı×é
+     * å°†ä¸€ä¸ªæ•´æ•°åŒ–ä½œgb2312ç¼–ç çš„å­—ç¬¦ä¸²æ•°æ®
+     * @param i ä¸€ä¸ªæ•´æ•°å€¼
+     * @return ä¸€ä¸ªè¡¨ç¤ºgb2312ç¼–ç çš„byteæ•°ç»„
      */
     public static byte[] intToGB(int i) {
         int sign = i < 0 ? 1 : 0;
@@ -303,7 +303,7 @@ public final class Util {
     }
 
     /**
-     * ¹¦ÄÜÍ¬GVmakerÖĞµÄcosº¯Êı
+     * åŠŸèƒ½åŒGVmakerä¸­çš„coså‡½æ•°
      */
     public static int cos(int deg) {
         deg &= 0x7fff;
@@ -313,7 +313,7 @@ public final class Util {
     }
 
     /**
-     * ¹¦ÄÜÍ¬GVmakerÖĞµÄcosº¯Êı
+     * åŠŸèƒ½åŒGVmakerä¸­çš„coså‡½æ•°
      */
     public static int sin(int deg) {
         deg &= 0x7fff;
@@ -331,9 +331,9 @@ public final class Util {
     }
 
     /**
-     * ½«Ò»¸öbyteÊı×é°ü×°ÎªÒ»¸öAccessable
-     * @param array byteÊı×é
-     * @return Ò»¸öAccessable
+     * å°†ä¸€ä¸ªbyteæ•°ç»„åŒ…è£…ä¸ºä¸€ä¸ªAccessable
+     * @param array byteæ•°ç»„
+     * @return ä¸€ä¸ªAccessable
      */
     public static Accessable asAccessable(final byte[] array) {
         return new Accessable() {
@@ -350,11 +350,11 @@ public final class Util {
     }
 
     /**
-     * µÃµ½gb2312±àÂë×Ö·ûcµÄµãÕóÊı¾İ<p>
-     * Èç¹û×Ö·û²»ÊÇÒ»¸öÕı³£µÄgb2312×Ö·û,ÔòÓÃ0Ìî³äÊı×é
-     * @param c ×Ö·û
-     * @param data ÓÃÀ´±£´æµãÕóÊı¾İ,Æä´óĞ¡Ó¦²»Ğ¡ÓÚ12»ò24
-     * @return count Êı¾İ×Ö½ÚÊı
+     * å¾—åˆ°gb2312ç¼–ç å­—ç¬¦cçš„ç‚¹é˜µæ•°æ®<p>
+     * å¦‚æœå­—ç¬¦ä¸æ˜¯ä¸€ä¸ªæ­£å¸¸çš„gb2312å­—ç¬¦,åˆ™ç”¨0å¡«å……æ•°ç»„
+     * @param c å­—ç¬¦
+     * @param data ç”¨æ¥ä¿å­˜ç‚¹é˜µæ•°æ®,å…¶å¤§å°åº”ä¸å°äº12æˆ–24
+     * @return count æ•°æ®å­—èŠ‚æ•°
      */
     public static int getGB12Data(char c, byte[] data) {
         int offset, count;
@@ -391,10 +391,10 @@ public final class Util {
     }
 
     /**
-     * µÃµ½gb2312±àÂë×Ö·ûcµÄµãÕóÊı¾İ
-     * @param c ×Ö·û
-     * @param data ÓÃÀ´±£´æµãÕóÊı¾İ,Æä´óĞ¡Ó¦²»Ğ¡ÓÚ16»ò32
-     * @return count Êı¾İ×Ö½ÚÊı
+     * å¾—åˆ°gb2312ç¼–ç å­—ç¬¦cçš„ç‚¹é˜µæ•°æ®
+     * @param c å­—ç¬¦
+     * @param data ç”¨æ¥ä¿å­˜ç‚¹é˜µæ•°æ®,å…¶å¤§å°åº”ä¸å°äº16æˆ–32
+     * @return count æ•°æ®å­—èŠ‚æ•°
      */
     public static int getGB16Data(char c, byte[] data) {
         int offset, count;

@@ -9,9 +9,9 @@ import eastsun.jgvm.module.ram.Stack;
 import eastsun.jgvm.module.ram.StringRam;
 
 /**
- * ÄÚ´æ¹ÜÀíÄ£¿é,Ä¬ÈÏÎ¬³ÖÔËĞĞÊ±ÄÚ´æÓë×Ö·û¶Ñ²¢Ìá¹©¶ÔÕ»µÄÖ§³Ö<p>
- * ²¢ÇÒÍ¨¹ıinstall·½·¨Ö§³Ö¶ÔÏÔ´æÓëÎÄ±¾»º³åÇøµÄ¿ÉÑ¡Ö§³Ö<p>
- * GVM¿ÉÒÔÍ¨¹ıRamManagerÌá¹©µÄÄÚ´æ¶ÁĞ´·ÃÎÊËùÓĞÄÚÔÚRam,¶ø²»ĞèÒªÖªµÀÀïÃæµÄ¾ßÌå½á¹¹<p>
+ * å†…å­˜ç®¡ç†æ¨¡å—,é»˜è®¤ç»´æŒè¿è¡Œæ—¶å†…å­˜ä¸å­—ç¬¦å †å¹¶æä¾›å¯¹æ ˆçš„æ”¯æŒ<p>
+ * å¹¶ä¸”é€šè¿‡installæ–¹æ³•æ”¯æŒå¯¹æ˜¾å­˜ä¸æ–‡æœ¬ç¼“å†²åŒºçš„å¯é€‰æ”¯æŒ<p>
+ * GVMå¯ä»¥é€šè¿‡RamManageræä¾›çš„å†…å­˜è¯»å†™è®¿é—®æ‰€æœ‰å†…åœ¨Ram,è€Œä¸éœ€è¦çŸ¥é“é‡Œé¢çš„å…·ä½“ç»“æ„<p>
  * @version 2.0 2008/3/19
  * @author Eastsun
  */
@@ -22,7 +22,7 @@ public final class RamManager implements Accessable {
     public static final int SIZE_OF_INT = 2;
     public static final int SIZE_OF_LONG = 4;
     /**
-     * ÔËĞĞÊ±ÄÚ´æµÄ¿ªÊ¼µØÖ·
+     * è¿è¡Œæ—¶å†…å­˜çš„å¼€å§‹åœ°å€
      */
     public static final int START_ADDR = 0x2000;
     private RelativeRam textRam,  graphRam,  bufferRam;
@@ -43,9 +43,9 @@ public final class RamManager implements Accessable {
     }
 
     /**
-     * µÈÍ¬ÓÚgetByte(addr)
-     * @param addr µØÖ·
-     * @return Ò»¸öÎŞ·ûºÅcharÖµ±íÊ¾Ò»¸öbyteÖµ
+     * ç­‰åŒäºgetByte(addr)
+     * @param addr åœ°å€
+     * @return ä¸€ä¸ªæ— ç¬¦å·charå€¼è¡¨ç¤ºä¸€ä¸ªbyteå€¼
      * @see #getByte(int)
      */
     public char getChar(int addr) {
@@ -53,8 +53,8 @@ public final class RamManager implements Accessable {
     }
 
     /**
-     * ´ÓÖ¸¶¨µØÖ·¶ÁÈ¡Á½×Ö½Ú×é³ÉÒ»¸ölavaÖĞµÄintÊı¾İ
-     * @param addr µØÖ·
+     * ä»æŒ‡å®šåœ°å€è¯»å–ä¸¤å­—èŠ‚ç»„æˆä¸€ä¸ªlavaä¸­çš„intæ•°æ®
+     * @param addr åœ°å€
      * @return int
      */
     public short getInt(int addr) {
@@ -62,17 +62,17 @@ public final class RamManager implements Accessable {
     }
 
     /**
-     * ´ÓÖ¸¶¨µØÖ·¶ÁÈ¡Èı×Ö½Ú×é³ÉÒ»¸ölavaÖĞµÄÎÄ¼şÖ¸ÕëÊı¾İ
-     * @param addr µØÖ·
-     * @return ÎÄ¼şÖ¸Õë
+     * ä»æŒ‡å®šåœ°å€è¯»å–ä¸‰å­—èŠ‚ç»„æˆä¸€ä¸ªlavaä¸­çš„æ–‡ä»¶æŒ‡é’ˆæ•°æ®
+     * @param addr åœ°å€
+     * @return æ–‡ä»¶æŒ‡é’ˆ
      */
     public int getAddr(int addr) {
         return getBytes(addr, SIZE_OF_ADDR);
     }
 
     /**
-     * ´ÓÖ¸¶¨µØÖ·¶ÁÈ¡ËÄ×Ö½Ú×é³ÉÒ»¸ölavaÖĞµÄlongÊı¾İ
-     * @param addr µØÖ·
+     * ä»æŒ‡å®šåœ°å€è¯»å–å››å­—èŠ‚ç»„æˆä¸€ä¸ªlavaä¸­çš„longæ•°æ®
+     * @param addr åœ°å€
      * @return long
      */
     public int getLong(int addr) {
@@ -80,9 +80,9 @@ public final class RamManager implements Accessable {
     }
 
     /**
-     * ÉèÖÃÒ»¸ölavaÖĞµÄcharÊı¾İ,µÈÍ¬ÓÚsetByte((byte)c)
-     * @param addr µØÖ·
-     * @param c charÖµ,µÚ°ËÎ»ÓĞĞ§
+     * è®¾ç½®ä¸€ä¸ªlavaä¸­çš„charæ•°æ®,ç­‰åŒäºsetByte((byte)c)
+     * @param addr åœ°å€
+     * @param c charå€¼,ç¬¬å…«ä½æœ‰æ•ˆ
      * @see #setByte(int,byte)
      */
     public void setChar(int addr, char c) {
@@ -90,31 +90,31 @@ public final class RamManager implements Accessable {
     }
 
     /**
-     * ÉèÖÃÒ»¸ölavaÖĞµÄintÊı¾İ
+     * è®¾ç½®ä¸€ä¸ªlavaä¸­çš„intæ•°æ®
      */
     public void setInt(int addr, short i) {
         setBytes(addr, SIZE_OF_INT, i);
     }
 
     /**
-     * ÉèÖÃÒ»¸ölavaÖĞµÄÎÄ¼şÖ¸ÕëÊı¾İ
+     * è®¾ç½®ä¸€ä¸ªlavaä¸­çš„æ–‡ä»¶æŒ‡é’ˆæ•°æ®
      */
     public void setAddr(int addr, int a) {
         setBytes(addr, SIZE_OF_ADDR, a);
     }
 
     /**
-     * ÉèÖÃÒ»¸ölavaÖĞµÄlongÊı¾İ
+     * è®¾ç½®ä¸€ä¸ªlavaä¸­çš„longæ•°æ®
      */
     public void setLong(int addr, int l) {
         setBytes(addr, SIZE_OF_LONG, l);
     }
 
     /**
-     * ´ÓÖ¸¶¨ÄÚ´æ¶ÁÈ¡Á¬Ğøcount¸ö×Ö½ÚÆ´³ÉÒ»¸öÕûÊı
-     * @param addr ¿ªÊ¼µØÖ·
-     * @param count ×Ö½ÚÊı
-     * @return ÕûÖµ
+     * ä»æŒ‡å®šå†…å­˜è¯»å–è¿ç»­countä¸ªå­—èŠ‚æ‹¼æˆä¸€ä¸ªæ•´æ•°
+     * @param addr å¼€å§‹åœ°å€
+     * @param count å­—èŠ‚æ•°
+     * @return æ•´å€¼
      */
     public int getBytes(int addr, int count) {
         int data = 0;
@@ -126,9 +126,9 @@ public final class RamManager implements Accessable {
     }
 
     /**
-     * ÓÃÒ»¸öÕûÖµÀ´ÉèÖÃÄÚ´æÖĞÁ¬Ğøcount¸ö×Ö½ÚÖµ<p>
-     * ×¢Òâ:ÕâĞ©ÄÚ´æµØÖ·ÖĞ¿ÉÄÜÉæ¼°µ½ÏÔ´æ»òÆÁÄ»»º³åÇø,¸Ã·½·¨²»¸ºÔğÍ¨ÖªÏàÓ¦×é¼ş<p>
-     *      Ó¦¸Ã×Ô¼ºµ÷ÓÃintersectWithGraph()·½·¨ÅĞ¶Ï²¢×ö³öÏàÓ¦·´Ó¦
+     * ç”¨ä¸€ä¸ªæ•´å€¼æ¥è®¾ç½®å†…å­˜ä¸­è¿ç»­countä¸ªå­—èŠ‚å€¼<p>
+     * æ³¨æ„:è¿™äº›å†…å­˜åœ°å€ä¸­å¯èƒ½æ¶‰åŠåˆ°æ˜¾å­˜æˆ–å±å¹•ç¼“å†²åŒº,è¯¥æ–¹æ³•ä¸è´Ÿè´£é€šçŸ¥ç›¸åº”ç»„ä»¶<p>
+     *      åº”è¯¥è‡ªå·±è°ƒç”¨intersectWithGraph()æ–¹æ³•åˆ¤æ–­å¹¶åšå‡ºç›¸åº”ååº”
      * @see #intersectWithGraph(int,int)
      */
     public void setBytes(int addr, int count, int data) {
@@ -139,14 +139,14 @@ public final class RamManager implements Accessable {
     }
 
     /**
-     * µÃµ½stringRam
+     * å¾—åˆ°stringRam
      */
     public StringRam getStringRam() {
         return strRam;
     }
 
     /**
-     * µÃµ½¸ÃJLVMÊ¹ÓÃµÄStack
+     * å¾—åˆ°è¯¥JLVMä½¿ç”¨çš„Stack
      * @return stack
      */
     public Stack getStack() {
@@ -154,7 +154,7 @@ public final class RamManager implements Accessable {
     }
 
     /**
-     * µÃµ½¸ÃJLVMÊ¹ÓÃµÄRuntimeRam
+     * å¾—åˆ°è¯¥JLVMä½¿ç”¨çš„RuntimeRam
      * @return runtimeRam
      */
     public RuntimeRam getRuntimeRam() {
@@ -162,10 +162,10 @@ public final class RamManager implements Accessable {
     }
 
     /**
-     * µÃµ½ÒÔstart¿ªÊ¼end½áÊøµÄÄÚ´æµØÖ·ÔÚÆÁÄ»ÉÏµÄÏÔÊ¾ÇøÓò<p>
-     * @param start ¿ªÊ¼µØÖ·,°üÀ¨
-     * @param end ½áÊøµØÖ·,²»°üÀ¨
-     * @return ¸ÃÄÚ´æÇøÓòÔÚÆÁÄ»ÏÔÊ¾ÇøÓòµÄ×îĞ¡¸²¸Ç¾ØĞÎ;Èç¹û²»´æÔÚÏÖ´æ»ò¸ÃÄÚ´æ¿é²»ÓëÏÔ´æÏà½»,Ôò·µ»ØÒ»¸ö¿ÕµÄArea
+     * å¾—åˆ°ä»¥startå¼€å§‹endç»“æŸçš„å†…å­˜åœ°å€åœ¨å±å¹•ä¸Šçš„æ˜¾ç¤ºåŒºåŸŸ<p>
+     * @param start å¼€å§‹åœ°å€,åŒ…æ‹¬
+     * @param end ç»“æŸåœ°å€,ä¸åŒ…æ‹¬
+     * @return è¯¥å†…å­˜åŒºåŸŸåœ¨å±å¹•æ˜¾ç¤ºåŒºåŸŸçš„æœ€å°è¦†ç›–çŸ©å½¢;å¦‚æœä¸å­˜åœ¨ç°å­˜æˆ–è¯¥å†…å­˜å—ä¸ä¸æ˜¾å­˜ç›¸äº¤,åˆ™è¿”å›ä¸€ä¸ªç©ºçš„Area
      */
     public Area intersectWithGraph(int start, int end) {
         if (graphRam == null) {
@@ -195,12 +195,12 @@ public final class RamManager implements Accessable {
     }
 
     /**
-     * ¶ÁÈ¡Ö¸¶¨ÄÚ´æµØÖ·Ò»×Ö½ÚÊı¾İ,²¢ÒÔbyte·µ»Ø
-     * @param addr µØÖ·
-     * @return byteÊı¾İ
+     * è¯»å–æŒ‡å®šå†…å­˜åœ°å€ä¸€å­—èŠ‚æ•°æ®,å¹¶ä»¥byteè¿”å›
+     * @param addr åœ°å€
+     * @return byteæ•°æ®
      */
     public byte getByte(int addr) {
-        //Notice: ¸ÃÊµÏÖÓëresetRamAddressµÄÊµÏÖ·½Ê½ÓĞ¹Ø
+        //Notice: è¯¥å®ç°ä¸resetRamAddressçš„å®ç°æ–¹å¼æœ‰å…³
         if (addr >= runRam.getStartAddr()) {
             return runRam.getByte(addr);
         }
@@ -213,19 +213,19 @@ public final class RamManager implements Accessable {
                 return ram.getByte(addr);
             }
         }
-        throw new IndexOutOfBoundsException("ÄÚ´æ¶ÁÔ½½ç:" + addr);
+        throw new IndexOutOfBoundsException("å†…å­˜è¯»è¶Šç•Œ:" + addr);
     }
 
     /**
-     * ½«µØÖ·ÎªaddrµÄÊı¾İÉèÎªb
-     * ×¢Òâ:ÕâĞ©ÄÚ´æµØÖ·ÖĞ¿ÉÄÜÉæ¼°µ½ÏÔ´æ»òÆÁÄ»»º³åÇø,¸Ã·½·¨²»¸ºÔğÍ¨ÖªÏàÓ¦×é¼ş<p>
-     *      Ó¦¸Ã×Ô¼ºµ÷ÓÃintersectWithGraph()·½·¨ÅĞ¶Ï²¢×ö³öÏàÓ¦·´Ó¦
-     * @param addr µØÖ·
-     * @param b Êı¾İ
-     * @throws IndexOutOfBoundsException ÄÚ´æĞ´Ô½½ç
+     * å°†åœ°å€ä¸ºaddrçš„æ•°æ®è®¾ä¸ºb
+     * æ³¨æ„:è¿™äº›å†…å­˜åœ°å€ä¸­å¯èƒ½æ¶‰åŠåˆ°æ˜¾å­˜æˆ–å±å¹•ç¼“å†²åŒº,è¯¥æ–¹æ³•ä¸è´Ÿè´£é€šçŸ¥ç›¸åº”ç»„ä»¶<p>
+     *      åº”è¯¥è‡ªå·±è°ƒç”¨intersectWithGraph()æ–¹æ³•åˆ¤æ–­å¹¶åšå‡ºç›¸åº”ååº”
+     * @param addr åœ°å€
+     * @param b æ•°æ®
+     * @throws IndexOutOfBoundsException å†…å­˜å†™è¶Šç•Œ
      */
     public void setByte(int addr, byte b) {
-        //Notice: ¸ÃÊµÏÖÓëresetRamAddressµÄÊµÏÖ·½Ê½ÓĞ¹Ø
+        //Notice: è¯¥å®ç°ä¸resetRamAddressçš„å®ç°æ–¹å¼æœ‰å…³
         if (addr >= runRam.getStartAddr()) {
             runRam.setByte(addr, b);
             return;
@@ -241,11 +241,11 @@ public final class RamManager implements Accessable {
                 return;
             }
         }
-        throw new IndexOutOfBoundsException("ÄÚ´æĞ´Ô½½ç:" + addr);
+        throw new IndexOutOfBoundsException("å†…å­˜å†™è¶Šç•Œ:" + addr);
     }
 
     /**
-     * ½«ËùÓĞÄÚ´æÄ£¿éÇåÁã
+     * å°†æ‰€æœ‰å†…å­˜æ¨¡å—æ¸…é›¶
      */
     public void clear() {
         runRam.clear();
@@ -258,10 +258,10 @@ public final class RamManager implements Accessable {
     }
 
     /**
-     * ÍùÀïÃæÌí¼ÓÄÚ´æÄ£¿é,Ã¿ÖÖÀàĞÍµÄÄÚ´æ×î¶àÖ»ÄÜ°²×°Ò»¸ö.<p>
-     * ramÎªnull²»»áÅ×³öÒì³£,ÇÒ²»»á¸Ä±äRamManagerµÄÈÎºÎ×´Ì¬
-     * @param ram ĞèÒª°²×°µÄÄÚ´æ
-     * @throws IllegalStateException ÒÑ¾­°²×°ÁËÕâÖÖÀàĞÍµÄÄÚ´æ
+     * å¾€é‡Œé¢æ·»åŠ å†…å­˜æ¨¡å—,æ¯ç§ç±»å‹çš„å†…å­˜æœ€å¤šåªèƒ½å®‰è£…ä¸€ä¸ª.<p>
+     * ramä¸ºnullä¸ä¼šæŠ›å‡ºå¼‚å¸¸,ä¸”ä¸ä¼šæ”¹å˜RamManagerçš„ä»»ä½•çŠ¶æ€
+     * @param ram éœ€è¦å®‰è£…çš„å†…å­˜
+     * @throws IllegalStateException å·²ç»å®‰è£…äº†è¿™ç§ç±»å‹çš„å†…å­˜
      * @see #uninstall
      */
     public void install(Ram ram) {
@@ -311,8 +311,8 @@ public final class RamManager implements Accessable {
     }
 
     /**
-     * Ğ¶ÔØram,Èç¹û²¢Ã»ÓĞ°²×°¹ıram,ÔòÊ²Ã´Ò²²»»á·¢Éú
-     * @param type ĞèÒªĞ¶ÔØµÄÄÚ´æÀàĞÍ
+     * å¸è½½ram,å¦‚æœå¹¶æ²¡æœ‰å®‰è£…è¿‡ram,åˆ™ä»€ä¹ˆä¹Ÿä¸ä¼šå‘ç”Ÿ
+     * @param type éœ€è¦å¸è½½çš„å†…å­˜ç±»å‹
      */
     public void uninstall(int type) {
         Ram ram = null;
@@ -351,19 +351,19 @@ public final class RamManager implements Accessable {
 
     private void resetRamAddress() {
 
-        // ÄÚ´æÄ£¿é²¼¾Ö: 0x2000¿ªÊ¼ÎªRuntimeRam
-        //                      0x0000¿ªÊ¼ÒÀ´ÎÎªgraphRam,bufferRam,textRam,stringRam
-        // Ó¦¸Ã°´±»Ê¹ÓÃ¸ÅÂÊ´ÓĞ¡µ½´óÅÅĞò,ÔÚramsÖĞµÄ´ÎĞòÓ¦¸Ã°´¿ªÊ¼µØÖ·´ÓĞ¡µ½´óÅÅÁĞ
-        // Notice: Èç¹ûĞŞ¸Ä,¿ÉÄÜÍ¬Ê±ĞèÒªĞŞ¸ÄsetByteÓëgetByte·½·¨
+        // å†…å­˜æ¨¡å—å¸ƒå±€: 0x2000å¼€å§‹ä¸ºRuntimeRam
+        //                      0x0000å¼€å§‹ä¾æ¬¡ä¸ºgraphRam,bufferRam,textRam,stringRam
+        // åº”è¯¥æŒ‰è¢«ä½¿ç”¨æ¦‚ç‡ä»å°åˆ°å¤§æ’åº,åœ¨ramsä¸­çš„æ¬¡åºåº”è¯¥æŒ‰å¼€å§‹åœ°å€ä»å°åˆ°å¤§æ’åˆ—
+        // Notice: å¦‚æœä¿®æ”¹,å¯èƒ½åŒæ—¶éœ€è¦ä¿®æ”¹setByteä¸getByteæ–¹æ³•
 
-        //·ÀÖ¹ÎŞĞ§ÒıÓÃ
+        //é˜²æ­¢æ— æ•ˆå¼•ç”¨
         for (int index = 0; index < rams.length; index++) {
             rams[index] = null;
         }
 
         ramCount = 0;
         if (runRam != null) {
-            //²»Ìí¼Óµ½ramsÖĞ
+            //ä¸æ·»åŠ åˆ°ramsä¸­
             runRam.setStartAddr(START_ADDR);
         }
 
@@ -389,12 +389,12 @@ public final class RamManager implements Accessable {
         if (strRam != null) {
             strRam.setStartAddr(startAddr);
             startAddr += strRam.size();
-        //strRamÓëruntimeRam²»ÔÚramsÖ®ÖĞ
+        //strRamä¸runtimeRamä¸åœ¨ramsä¹‹ä¸­
         //rams[ramCount++] = strRam;
         }
 
         if (startAddr > START_ADDR) {
-            throw new IllegalStateException("¿¿,ÄÚ´æÄ£¿éÕâÃ´´ó!");
+            throw new IllegalStateException("é ,å†…å­˜æ¨¡å—è¿™ä¹ˆå¤§!");
         }
     }
 }

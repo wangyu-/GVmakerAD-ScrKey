@@ -3,15 +3,15 @@ package eastsun.jgvm.module.ram;
 import eastsun.jgvm.module.ScreenModel;
 
 /**
- * ¹ØÁªÄÚ´æÄ£¿é<p>
- * ÕâÖÖÄÚ´æÖ±½Ó»ò¼ä½ÓÓëScreenModelÏà¹ØÁª,ÆäÄÚÈİÒ²ÓëScreenModelÏà¶ÔÓ¦.
+ * å…³è”å†…å­˜æ¨¡å—<p>
+ * è¿™ç§å†…å­˜ç›´æ¥æˆ–é—´æ¥ä¸ScreenModelç›¸å…³è”,å…¶å†…å®¹ä¹Ÿä¸ScreenModelç›¸å¯¹åº”.
  * @author Eastsun
  * @see ScreenModel
  */
 public interface RelativeRam extends Ram {
 
     /**
-     * µÃµ½´ËRam¶ÔÓ¦µÄScreenModel
+     * å¾—åˆ°æ­¤Ramå¯¹åº”çš„ScreenModel
      * @return screen
      */
     ScreenModel getScreenModel();

@@ -1,75 +1,75 @@
 package eastsun.jgvm.module.ram;
 
 /**
- * GVM¸÷ÖÖÄÚ´æÄ£¿éµÄ¸¸½Ó¿Ú.
- * ×¢Òâ,ÆäÄ³Ğ©×Ó½Ó¿Ú¿ÉÄÜ»áÏŞÖÆsetByte()µÄÊ¹ÓÃ
+ * GVMå„ç§å†…å­˜æ¨¡å—çš„çˆ¶æ¥å£.
+ * æ³¨æ„,å…¶æŸäº›å­æ¥å£å¯èƒ½ä¼šé™åˆ¶setByte()çš„ä½¿ç”¨
  * @author Eastsun
  */
 public interface Ram extends Accessable {
 
     /**
-     * ÔËĞĞÊ±ÄÚ´æÀàĞÍ
+     * è¿è¡Œæ—¶å†…å­˜ç±»å‹
      */
     public static final int RAM_RUNTIME_TYPE = 0x01;
     /**
-     * ÏÔ´æÄÚ´æÀàĞÍ
+     * æ˜¾å­˜å†…å­˜ç±»å‹
      */
     public static final int RAM_GRAPH_TYPE = 0x02;
     /**
-     * ÆÁÄ»»º´æÀàĞÍ
+     * å±å¹•ç¼“å­˜ç±»å‹
      */
     public static final int RAM_BUFFER_TYPE = 0x04;
     /**
-     * ÎÄ±¾»º³åÇøÀàĞÍ
+     * æ–‡æœ¬ç¼“å†²åŒºç±»å‹
      */
     public static final int RAM_TEXT_TYPE = 0x08;
     /**
-     * ×Ö·û¶ÑÄÚ´æÀàĞÍ
+     * å­—ç¬¦å †å†…å­˜ç±»å‹
      */
     public static final int RAM_STRING_TYPE = 0x10;
 
     /**
-     * Õâ¿éÄÚ´æµÄ´óĞ¡,ÒÔ×Ö½ÚÊı¼ÆËã
+     * è¿™å—å†…å­˜çš„å¤§å°,ä»¥å­—èŠ‚æ•°è®¡ç®—
      * @return size
      */
     int size();
 
     /**
-     * µÃµ½ÄÚ´æµÄÀàĞÍ,Ö»ÄÜÊÇRAM_RUNTIME_TYPE,RAM_GRAPH_TYPE,RAM_BUFFER_TYPE,RAM_TEXT_TYPE,RAM_STRING_TYPEÎåÕßÕßÖ®Ò»
+     * å¾—åˆ°å†…å­˜çš„ç±»å‹,åªèƒ½æ˜¯RAM_RUNTIME_TYPE,RAM_GRAPH_TYPE,RAM_BUFFER_TYPE,RAM_TEXT_TYPE,RAM_STRING_TYPEäº”è€…è€…ä¹‹ä¸€
      * @return type
      */
     int getRamType();
 
     /**
-     * Õâ¿éÄÚ´æµÄ¿ªÊ¼µØÖ·
+     * è¿™å—å†…å­˜çš„å¼€å§‹åœ°å€
      * @return addr
      */
     int getStartAddr();
 
     /**
-     * ÉèÖÃÄÚ´æµÄ¿ªÊ¼µØÖ·,ÓÉRamManagerµ÷ÓÃ
-     * @param addr ¿ªÊ¼µØÖ·
+     * è®¾ç½®å†…å­˜çš„å¼€å§‹åœ°å€,ç”±RamManagerè°ƒç”¨
+     * @param addr å¼€å§‹åœ°å€
      */
     void setStartAddr(int addr);
 
     /**
-     * ¶ÁÈ¡Ö¸¶¨µØÖ·µÄÒ»¸ö×Ö½Ú
-     * @param addr µØÖ·
+     * è¯»å–æŒ‡å®šåœ°å€çš„ä¸€ä¸ªå­—èŠ‚
+     * @param addr åœ°å€
      * @return data
-     * @throws IndexOutOfBoundsException ÄÚ´æ¶ÁÔ½½ç
+     * @throws IndexOutOfBoundsException å†…å­˜è¯»è¶Šç•Œ
      */
     byte getByte(int addr) throws IndexOutOfBoundsException;
 
     /**
-     * ÉèÖÃÖ¸¶¨µØÖ·µÄÊı¾İ
-     * @param addr µØÖ·
-     * @param data Öµ
-     * @throws IndexOutOfBoundsException ÄÚ´æĞ´Ô½½ç
+     * è®¾ç½®æŒ‡å®šåœ°å€çš„æ•°æ®
+     * @param addr åœ°å€
+     * @param data å€¼
+     * @throws IndexOutOfBoundsException å†…å­˜å†™è¶Šç•Œ
      */
     void setByte(int addr, byte data) throws IndexOutOfBoundsException;
 
     /**
-     * È«²¿ÄÚ´æÇåÁã
+     * å…¨éƒ¨å†…å­˜æ¸…é›¶
      */
     void clear();
 }

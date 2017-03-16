@@ -7,7 +7,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.Enumeration;
 
 /**
- * ·â×°Æ´ÒôÊäÈë·¨ËùĞèµÄĞÅÏ¢
+ * å°è£…æ‹¼éŸ³è¾“å…¥æ³•æ‰€éœ€çš„ä¿¡æ¯
  * @author Eastsun
  * @version 2008-3-17
  */
@@ -17,14 +17,14 @@ public final class SpellInfo {
     }
 
     /**
-     * µÃµ½ËùÓĞSpellNodeµÄÃ¶¾ÙÆ÷,ÆäÖĞ°üº¬°´Æ´Òô×ÖµäË³ĞòÅÅÁĞµÄcount¸öSpellNode
+     * å¾—åˆ°æ‰€æœ‰SpellNodeçš„æšä¸¾å™¨,å…¶ä¸­åŒ…å«æŒ‰æ‹¼éŸ³å­—å…¸é¡ºåºæ’åˆ—çš„countä¸ªSpellNode
      */
     public static Enumeration list() {
         return new SpellNodeEnum();
     }
 
     /**
-     * µÃµ½²»Í¬Æ´ÒôµÄÊıÄ¿
+     * å¾—åˆ°ä¸åŒæ‹¼éŸ³çš„æ•°ç›®
      * @return count
      */
     public static int count() {
@@ -35,12 +35,12 @@ public final class SpellInfo {
     
 
     static {
-        //×°ÔØÆ´ÒôÊı¾İ
-        //Êı¾İ¸ñÊ½:
-        //µÚÒ»¸ö×Ö½Ú0xAB±íÊ¾°æ±¾ºÅÎªA.B
-        //µÚ¶ş,Èı¸ö×Ö½Ú±íÊ¾×Ü¹²ÓĞ¶àÉÙ¸öÆ´Òô
-        //½ÓÏÂÀ´ÎªÆ´ÒôÊı¾İ,Ã¿¸öÆ´ÒôÊı¾İµÄ¸ñÊ½Îª"¶ÔÓ¦ºº×ÖÊı(Ò»×Ö½Ú) Æ´Òô×Ö·û´® |"
-        //ºóÃæÊÇºº×ÖÊı¾İ,°´Æ´Òô³öÏÖµÄ´ÎĞòË³ĞòÅÅÁĞ
+        //è£…è½½æ‹¼éŸ³æ•°æ®
+        //æ•°æ®æ ¼å¼:
+        //ç¬¬ä¸€ä¸ªå­—èŠ‚0xABè¡¨ç¤ºç‰ˆæœ¬å·ä¸ºA.B
+        //ç¬¬äºŒ,ä¸‰ä¸ªå­—èŠ‚è¡¨ç¤ºæ€»å…±æœ‰å¤šå°‘ä¸ªæ‹¼éŸ³
+        //æ¥ä¸‹æ¥ä¸ºæ‹¼éŸ³æ•°æ®,æ¯ä¸ªæ‹¼éŸ³æ•°æ®çš„æ ¼å¼ä¸º"å¯¹åº”æ±‰å­—æ•°(ä¸€å­—èŠ‚) æ‹¼éŸ³å­—ç¬¦ä¸² |"
+        //åé¢æ˜¯æ±‰å­—æ•°æ®,æŒ‰æ‹¼éŸ³å‡ºç°çš„æ¬¡åºé¡ºåºæ’åˆ—
     	
     	android.content.Context con = eastsun.jgvm.plaf.android.MainView.getCurrentView().getContext();
     	InputStream in = con.getResources().openRawResource(eastsun.jgvm.plaf.android.R.raw.spell);
@@ -49,7 +49,7 @@ public final class SpellInfo {
         try {
             int version = in.read();
             if (version != 0x10) {
-                throw new IllegalStateException("²»ÊÊºÏµÄÊı¾İ°æ±¾:" + Integer.toHexString(version));
+                throw new IllegalStateException("ä¸é€‚åˆçš„æ•°æ®ç‰ˆæœ¬:" + Integer.toHexString(version));
             }
             int count = in.read();
             count = count + in.read() * 256;
@@ -102,9 +102,9 @@ public final class SpellInfo {
         private int size;
 
         /**
-         * ·â×°µ¥¸öÆ´ÒôµÄÏà¹ØĞÅÏ¢
-         * @param spell Æ´Òô
-         * @param data spell¶ÔÓ¦µÄºº×ÖµÄgb2312±àÂë×é³ÉµÄÊı×é,ÄÚ²¿½«Ö±½ÓÊ¹ÓÃÕâ¸öÊı×é
+         * å°è£…å•ä¸ªæ‹¼éŸ³çš„ç›¸å…³ä¿¡æ¯
+         * @param spell æ‹¼éŸ³
+         * @param data spellå¯¹åº”çš„æ±‰å­—çš„gb2312ç¼–ç ç»„æˆçš„æ•°ç»„,å†…éƒ¨å°†ç›´æ¥ä½¿ç”¨è¿™ä¸ªæ•°ç»„
          */
         SpellNode(String spell, int size) {
             this.spell = spell;
@@ -112,25 +112,25 @@ public final class SpellInfo {
         }
 
         /**
-         * µÃµ½¸ÃnodeµÄÆ´Òô×Ö·û´®
+         * å¾—åˆ°è¯¥nodeçš„æ‹¼éŸ³å­—ç¬¦ä¸²
          */
         public String spell() {
             return spell;
         }
 
         /**
-         * ¸ÃÆ´Òô¶ÔÓ¦ºº×Ö¸öÊı
+         * è¯¥æ‹¼éŸ³å¯¹åº”æ±‰å­—ä¸ªæ•°
          */
         public int size() {
             return size;
         }
 
         /**
-         * È¡µÃ¸ÃÆ´Òô´Óid¿ªÊ¼µÄlen¸öºº×ÖµÄgb2312±àÂëÊı¾İ
-         * @param dst ÓÃÓÚ±£´æÊı¾İ
-         * @param id       ¿ªÊ¼µÄºº×Ö±àºÅ,´Ó0¿ªÊ¼
-         * @param len     Óû»ñÈ¡µÄºº×Ö¸öÊı
-         * @return           Êµ¼Ê»ñÈ¡µÄºº×Ö¸öÊı
+         * å–å¾—è¯¥æ‹¼éŸ³ä»idå¼€å§‹çš„lenä¸ªæ±‰å­—çš„gb2312ç¼–ç æ•°æ®
+         * @param dst ç”¨äºä¿å­˜æ•°æ®
+         * @param id       å¼€å§‹çš„æ±‰å­—ç¼–å·,ä»0å¼€å§‹
+         * @param len     æ¬²è·å–çš„æ±‰å­—ä¸ªæ•°
+         * @return           å®é™…è·å–çš„æ±‰å­—ä¸ªæ•°
          */
         public int getGB(Setable dst, int offset, int id, int len) {
             id <<= 1;
@@ -156,7 +156,7 @@ public final class SpellInfo {
         }
 
         /**
-         *  ÉèÖÃ¸ÃnodeµÄºº×ÖÊı¾İ,ÄÚ²¿Ö±½ÓÊ¹ÓÃ¸ÃbyteÊı×é
+         *  è®¾ç½®è¯¥nodeçš„æ±‰å­—æ•°æ®,å†…éƒ¨ç›´æ¥ä½¿ç”¨è¯¥byteæ•°ç»„
          */
         void setData(byte[] data) {
             if (data.length != size * 2) {

@@ -5,93 +5,93 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 /**
- * ÎÄ¼şÏµÍ³½Ó¿Ú,Í¨¹ı¸Ã½Ó¿Ú½«GVMÖĞµÄÎÄ¼ş²Ù×÷Ó³Éäµ½ÏµÍ³ÖĞµÄÎÄ¼ş²Ù×÷<p>
- * ×¢Òâ:·½·¨ÖĞÉæ¼°µÄÎÄ¼şÃû¶¼ÊÇGVMÖĞÓÃµ½µÄÎÄ¼şÃû,²»Ò»¶¨Óëµ×²ãÊµ¼ÊÎÄ¼şÒ»Ò»¶ÔÓ¦.Æä¾ßÌå½âÊÍÓÉÊµÏÖÕßÌá¹©<p>
+ * æ–‡ä»¶ç³»ç»Ÿæ¥å£,é€šè¿‡è¯¥æ¥å£å°†GVMä¸­çš„æ–‡ä»¶æ“ä½œæ˜ å°„åˆ°ç³»ç»Ÿä¸­çš„æ–‡ä»¶æ“ä½œ<p>
+ * æ³¨æ„:æ–¹æ³•ä¸­æ¶‰åŠçš„æ–‡ä»¶åéƒ½æ˜¯GVMä¸­ç”¨åˆ°çš„æ–‡ä»¶å,ä¸ä¸€å®šä¸åº•å±‚å®é™…æ–‡ä»¶ä¸€ä¸€å¯¹åº”.å…¶å…·ä½“è§£é‡Šç”±å®ç°è€…æä¾›<p>
  * @author Eastsun
  * @version 2008-2-23
  */
 public interface FileSystem {
 
     /**
-     * Ò»¸öÃèÊöÎÄ¼şĞÅÏ¢µÄ½Ó¿Ú
+     * ä¸€ä¸ªæè¿°æ–‡ä»¶ä¿¡æ¯çš„æ¥å£
      * @author Eastsun
      * @version 2008-2-25
      */
     public interface Info {
 
         /**
-         * ÊÇ·ñÎªÒ»¸öÎÄ¼ş
+         * æ˜¯å¦ä¸ºä¸€ä¸ªæ–‡ä»¶
          */
         public boolean isFile();
 
         /**
-         * ÊÇ·ñÎªÒ»¸öÎÄ¼ş¼Ğ
-         * @return µ±½öµ±´æÔÚÇÒÎªÎÄ¼ş¼ĞÊ±·µ»Øtrue
+         * æ˜¯å¦ä¸ºä¸€ä¸ªæ–‡ä»¶å¤¹
+         * @return å½“ä»…å½“å­˜åœ¨ä¸”ä¸ºæ–‡ä»¶å¤¹æ—¶è¿”å›true
          */
         public boolean isDirectory();
 
         /**
-         * ¸ÃÎÄ¼ş¼Ğ»òÎÄ¼şÊÇ·ñ¿É¶Á
-         * @return µ±ÇÒ½öµ±´æÔÚÇÒ¿É¶ÁÊ±·µ»Øtrue
+         * è¯¥æ–‡ä»¶å¤¹æˆ–æ–‡ä»¶æ˜¯å¦å¯è¯»
+         * @return å½“ä¸”ä»…å½“å­˜åœ¨ä¸”å¯è¯»æ—¶è¿”å›true
          */
         public boolean canRead();
 
         /**
-         * ¸ÃÎÄ¼ş¼Ğ»òÎÄ¼şÊÇ·ñ¿ÉĞ´
-         * @return µ±½öµ±´æÔÚÇÒ¿ÉĞ´Ê±·µ»Øtrue
+         * è¯¥æ–‡ä»¶å¤¹æˆ–æ–‡ä»¶æ˜¯å¦å¯å†™
+         * @return å½“ä»…å½“å­˜åœ¨ä¸”å¯å†™æ—¶è¿”å›true
          */
         public boolean canWrite();
 
         /**
-         * µÃµ½ÎÄ¼ş¼ĞÏÂÎÄ¼ş¸öÊı
-         * @return ÎªÎÄ¼ş¼ĞÊ±·µ»ØÆäÄ¿Â¼ÏÂÎÄ¼ş¸öÊı(º¬×ÓÄ¿Â¼);·ñÔò·µ»Ø-1
+         * å¾—åˆ°æ–‡ä»¶å¤¹ä¸‹æ–‡ä»¶ä¸ªæ•°
+         * @return ä¸ºæ–‡ä»¶å¤¹æ—¶è¿”å›å…¶ç›®å½•ä¸‹æ–‡ä»¶ä¸ªæ•°(å«å­ç›®å½•);å¦åˆ™è¿”å›-1
          */
         public int getFileNum();
 
         /**
-         * µÃµ½Ä¿Â¼ÏÂµÚstart¸ö¿ªÊ¼µÄnum¸öÎÄ¼şÃû,±£´æµ½namesÖĞ
-         * @param names ÓÃÓÚ±£´æÎÄ¼şÃûµÄStringÊı×é
-         * @param start ¿ªÊ¼ÎÄ¼şºÅ
-         * @param num   ¸öÊı
-         * @return      Êµ¼ÊµÃµ½µÄ¸öÊı,Èç³ö´í,·µ»Ø-1
+         * å¾—åˆ°ç›®å½•ä¸‹ç¬¬startä¸ªå¼€å§‹çš„numä¸ªæ–‡ä»¶å,ä¿å­˜åˆ°namesä¸­
+         * @param names ç”¨äºä¿å­˜æ–‡ä»¶åçš„Stringæ•°ç»„
+         * @param start å¼€å§‹æ–‡ä»¶å·
+         * @param num   ä¸ªæ•°
+         * @return      å®é™…å¾—åˆ°çš„ä¸ªæ•°,å¦‚å‡ºé”™,è¿”å›-1
          */
         public int listFiles(String[] names, int start, int num);
     }
 
     /**
-     * µÃµ½¸ÃÎÄ¼şµÄInputStream,ÒÔ¶ÁÈ¡ÆäÄÚÈİ
-     * @return in µ±ÎÄ¼ş´æÔÚÇÒcanRead·µ»ØtrueÊ±·µ»ØÖ¸Ïò¸ÃÎÄ¼şµÄInputStream
-     * @throws java.io.IOException ÎÄ¼ş²»´æÔÚ»ò²»¿É¶Á»ò·¢ÉúIO´íÎó
+     * å¾—åˆ°è¯¥æ–‡ä»¶çš„InputStream,ä»¥è¯»å–å…¶å†…å®¹
+     * @return in å½“æ–‡ä»¶å­˜åœ¨ä¸”canReadè¿”å›trueæ—¶è¿”å›æŒ‡å‘è¯¥æ–‡ä»¶çš„InputStream
+     * @throws java.io.IOException æ–‡ä»¶ä¸å­˜åœ¨æˆ–ä¸å¯è¯»æˆ–å‘ç”ŸIOé”™è¯¯
      */
     public InputStream getInputStream(String fileName) throws IOException;
 
     /**
-     * µÃµ½¸ÃÎÄ¼şµÄOutputStreamÒÔÏòÆäĞ´ÈëÄÚÈİ<p>
-     * µ±ÎÄ¼ş²»´æÔÚÊ±»á´´½¨Ò»¸öĞÂµÄÎÄ¼ş
-     * @return out  ·µ»ØÖ¸Ïò¸ÃÎÄ¼şµÄOutputStream
-     * @throws java.io.IOException ÈôÎÄ¼ş²»¿ÉĞ´»ò·¢ÉúIO´íÎó
+     * å¾—åˆ°è¯¥æ–‡ä»¶çš„OutputStreamä»¥å‘å…¶å†™å…¥å†…å®¹<p>
+     * å½“æ–‡ä»¶ä¸å­˜åœ¨æ—¶ä¼šåˆ›å»ºä¸€ä¸ªæ–°çš„æ–‡ä»¶
+     * @return out  è¿”å›æŒ‡å‘è¯¥æ–‡ä»¶çš„OutputStream
+     * @throws java.io.IOException è‹¥æ–‡ä»¶ä¸å¯å†™æˆ–å‘ç”ŸIOé”™è¯¯
      */
     public OutputStream getOutputStream(String fileName) throws IOException;
 
     /**
-     * É¾³ıÎÄ¼ş
-     * @param fileName ÎÄ¼şÃû
-     * @return true,Èç¹ûÉ¾³ı³É¹¦
+     * åˆ é™¤æ–‡ä»¶
+     * @param fileName æ–‡ä»¶å
+     * @return true,å¦‚æœåˆ é™¤æˆåŠŸ
      */
     public boolean deleteFile(String fileName);
 
     /**
-     * ½¨Á¢ÎÄ¼ş¼Ğ
-     * @param dirName ÎÄ¼ş¼ĞÃû
-     * @return true,Èç¹û´´½¨³É¹¦
+     * å»ºç«‹æ–‡ä»¶å¤¹
+     * @param dirName æ–‡ä»¶å¤¹å
+     * @return true,å¦‚æœåˆ›å»ºæˆåŠŸ
      */
     public boolean makeDir(String dirName);
 
     /**
-     * µÃµ½Ö¸¶¨ÎÄ¼ş/ÎÄ¼ş¼ĞµÄÏà¹ØĞÅÏ¢<p>
-     * ×¢Òâ:ÕâĞ©ĞÅÏ¢Ö»´ú±í»ñµÃ¸ÃĞÅÏ¢Ê±ÎÄ¼şµÄÇé¿ö,²¢²»Ëæ×Å»·¾³µÄ±ä»¯¶ø±ä»¯
-     * @param fileName ÎÄ¼şÃû
-     * @return ÆäÏà¹ØĞÅÏ¢
+     * å¾—åˆ°æŒ‡å®šæ–‡ä»¶/æ–‡ä»¶å¤¹çš„ç›¸å…³ä¿¡æ¯<p>
+     * æ³¨æ„:è¿™äº›ä¿¡æ¯åªä»£è¡¨è·å¾—è¯¥ä¿¡æ¯æ—¶æ–‡ä»¶çš„æƒ…å†µ,å¹¶ä¸éšç€ç¯å¢ƒçš„å˜åŒ–è€Œå˜åŒ–
+     * @param fileName æ–‡ä»¶å
+     * @return å…¶ç›¸å…³ä¿¡æ¯
      */
     public Info getFileInf(String fileName);
 }

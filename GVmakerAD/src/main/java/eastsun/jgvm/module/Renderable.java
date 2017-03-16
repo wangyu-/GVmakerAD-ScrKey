@@ -4,32 +4,32 @@ import eastsun.jgvm.module.ram.Getable;
 import eastsun.jgvm.module.ram.Setable;
 
 /**
- * »æÍ¼½Ó¿Ú,Í¨¹ı¸Ã½Ó¿ÚÏòÆÁÄ»»ò»º³åÇø»æÖÆÍ¼Ïñ<p>
- * ×¢Òâ:³ıÁËrefresh·½·¨»á¼¤·¢fireScreenChanged·½·¨Íâ,ÆäËû·½·¨¾ù²»»á×Ô¶¯¼¤·¢fireScreenChanged
+ * ç»˜å›¾æ¥å£,é€šè¿‡è¯¥æ¥å£å‘å±å¹•æˆ–ç¼“å†²åŒºç»˜åˆ¶å›¾åƒ<p>
+ * æ³¨æ„:é™¤äº†refreshæ–¹æ³•ä¼šæ¿€å‘fireScreenChangedæ–¹æ³•å¤–,å…¶ä»–æ–¹æ³•å‡ä¸ä¼šè‡ªåŠ¨æ¿€å‘fireScreenChanged
  * @author Eastsun
  * @version 1.0 2008/1/21
  */
 public interface Renderable {
 
     /**
-     * Ê¹ÓÃ´ó×ÖÌåÄ£Ê½,¶ÔdrawCharµÈÓĞĞ§
+     * ä½¿ç”¨å¤§å­—ä½“æ¨¡å¼,å¯¹drawCharç­‰æœ‰æ•ˆ
      */
     public static final int TEXT_BIG_TYPE = 0x80;
     /**
-     * Ö±½ÓÔÚÆÁÄ»»æÍ¼
+     * ç›´æ¥åœ¨å±å¹•ç»˜å›¾
      */
     public static final int RENDER_GRAPH_TYPE = 0x40;
     /**
-     * Õë¶Ô¼¸ºÎÍ¼ĞÎ,ÊÇ·ñÌî³ä
+     * é’ˆå¯¹å‡ ä½•å›¾å½¢,æ˜¯å¦å¡«å……
      */
     public static final int RENDER_FILL_TYPE = 0x10;
     /**
-     * Í¼ÏñÈ¡·´
+     * å›¾åƒå–å
      */
     public static final int RENDER_XNOT_TYPE = 0x08;
     /**
-     * Í¸Ã÷copy,0ÎªÍ¸Ã÷ÏñËØ<p>
-     * ×¢Òâ,0~6»¥³â
+     * é€æ˜copy,0ä¸ºé€æ˜åƒç´ <p>
+     * æ³¨æ„,0~6äº’æ–¥
      */
     public static final int DRAW_TCOPY_TYPE = 6;
     /**
@@ -49,87 +49,87 @@ public interface Renderable {
      */
     public static final int DRAW_NOT_TYPE = 2;
     /**
-     * copy,»æÖÆÍ¼ĞÎÊ±ÒâË¼Îªcopy,»æÖÆ¼¸ºÎÍ¼ĞÎÊ±²ÉÓÃÇ°¾°É«»æÍ¼
+     * copy,ç»˜åˆ¶å›¾å½¢æ—¶æ„æ€ä¸ºcopy,ç»˜åˆ¶å‡ ä½•å›¾å½¢æ—¶é‡‡ç”¨å‰æ™¯è‰²ç»˜å›¾
      */
     public static final int DRAW_COPY_TYPE = 1;
     /**
-     * clear,¶Ô»æÖÆ¼¸ºÎÍ¼ĞÎÓĞĞ§,Ê¹ÓÃ±³¾°É«»æÍ¼
+     * clear,å¯¹ç»˜åˆ¶å‡ ä½•å›¾å½¢æœ‰æ•ˆ,ä½¿ç”¨èƒŒæ™¯è‰²ç»˜å›¾
      */
     public static final int DRAW_CLEAR_TYPE = 0;
 
     /**
-     * ÉèÖÃ»æÖÆÊôĞÔ,¿ÉÄÜ°üÀ¨Ìî³ä/²»Ìî³ä,Õı³£/·´É«,etc.
-     * @param m ĞèÒªÉèÖÃµÄÊôĞÔ
+     * è®¾ç½®ç»˜åˆ¶å±æ€§,å¯èƒ½åŒ…æ‹¬å¡«å……/ä¸å¡«å……,æ­£å¸¸/åè‰²,etc.
+     * @param m éœ€è¦è®¾ç½®çš„å±æ€§
      */
     public void setDrawMode(int m);
 
     /**
-     * »æÖÆÒ»¸öÒÔ0½áÎ²µÄ×Ö·û´®
+     * ç»˜åˆ¶ä¸€ä¸ªä»¥0ç»“å°¾çš„å­—ç¬¦ä¸²
      */
     public void drawString(int x, int y, Getable source, int addr);
 
     /**
-     * »æÖÆ´ÓµØÖ·addr¿ªÊ¼µÄlength¸ö×Ö·û 
+     * ç»˜åˆ¶ä»åœ°å€addrå¼€å§‹çš„lengthä¸ªå­—ç¬¦ 
      */
     public void drawString(int x, int y, Getable source, int addr, int length);
 
     /**
-     * »æÖÆ¾ØĞÎ
+     * ç»˜åˆ¶çŸ©å½¢
      */
     public void drawRect(int x0, int y0, int x1, int y1);
 
     /**
-     * »æÖÆÍÖÔ²
+     * ç»˜åˆ¶æ¤­åœ†
      */
     public void drawOval(int x, int y, int a, int b);
 
     /**
-     * ÔÚÆÁÄ»Îª×ø±ê(x,y)´¦»­µã
-     * type=0:2É«Ä£Ê½ÏÂ»­°×µã£¬16É«ºÍ256É«Ä£Ê½ÏÂÓÃ±³¾°É«»­µã
-     *      1:2É«Ä£Ê½ÏÂ»­ºÚµã£¬16É«ºÍ256É«Ä£Ê½ÏÂÓÃÇ°¾°É«»­µã
-     *      2:µãµÄÑÕÉ«È¡·´
-     * ×ø±ê²»ÔÚÆÁÄ»ÄÚ²»»áÅ×³öÒì³£
-     * @param x ºá×ø±ê
-     * @param y ×İ×ø±ê
+     * åœ¨å±å¹•ä¸ºåæ ‡(x,y)å¤„ç”»ç‚¹
+     * type=0:2è‰²æ¨¡å¼ä¸‹ç”»ç™½ç‚¹ï¼Œ16è‰²å’Œ256è‰²æ¨¡å¼ä¸‹ç”¨èƒŒæ™¯è‰²ç”»ç‚¹
+     *      1:2è‰²æ¨¡å¼ä¸‹ç”»é»‘ç‚¹ï¼Œ16è‰²å’Œ256è‰²æ¨¡å¼ä¸‹ç”¨å‰æ™¯è‰²ç”»ç‚¹
+     *      2:ç‚¹çš„é¢œè‰²å–å
+     * åæ ‡ä¸åœ¨å±å¹•å†…ä¸ä¼šæŠ›å‡ºå¼‚å¸¸
+     * @param x æ¨ªåæ ‡
+     * @param y çºµåæ ‡
      */
     public void drawPoint(int x, int y);
 
     /**
-     * µÃµ½ÆÁÄ»ÉÏ(x,y)´¦µãµÄµÄ×´Ì¬,¸Ã·½·¨²»¿¼ÂÇgraphModeµÄÖµ.
-     * @return  2É«Ä£Ê½ÏÂÈç¹ûÊÇ°×µã·µ»ØÁã£¬ºÚµã·µ»Ø·ÇÁãÖµ
+     * å¾—åˆ°å±å¹•ä¸Š(x,y)å¤„ç‚¹çš„çš„çŠ¶æ€,è¯¥æ–¹æ³•ä¸è€ƒè™‘graphModeçš„å€¼.
+     * @return  2è‰²æ¨¡å¼ä¸‹å¦‚æœæ˜¯ç™½ç‚¹è¿”å›é›¶ï¼Œé»‘ç‚¹è¿”å›éé›¶å€¼
      */
     public int getPoint(int x, int y);
 
     /**
-     * »æÖÆÖ±Ïß
+     * ç»˜åˆ¶ç›´çº¿
      */
     public void drawLine(int x0, int y0, int x1, int y1);
 
     /**
-     * »æÖÆÍ¼Ïñ,Í¼ÏñËùÔÚÇøÓò¿ÉÒÔ²»ÔÚÆÁÄ»·¶Î§ÄÚ
+     * ç»˜åˆ¶å›¾åƒ,å›¾åƒæ‰€åœ¨åŒºåŸŸå¯ä»¥ä¸åœ¨å±å¹•èŒƒå›´å†…
      */
     public void drawRegion(int x, int y, int width, int height, Getable src, int addr);
 
     /**
-     * µÃµ½ÆÁÄ»»ò»º³åÇøµÄÍ¼ÏñÊı¾İ,ºöÂÔx,widthµÄµÍÈıÎ»
-     * @throws IndexOutOfBoundsException Èç¹ûÍ¼Ïñ³¬³öÆÁÄ»·¶Î§
-     * @return length Í¼ÏñÊı¾İ³¤¶È
+     * å¾—åˆ°å±å¹•æˆ–ç¼“å†²åŒºçš„å›¾åƒæ•°æ®,å¿½ç•¥x,widthçš„ä½ä¸‰ä½
+     * @throws IndexOutOfBoundsException å¦‚æœå›¾åƒè¶…å‡ºå±å¹•èŒƒå›´
+     * @return length å›¾åƒæ•°æ®é•¿åº¦
      */
     public int getRegion(int x, int y, int width, int height, Setable dst, int addr);
 
     /**
-     * ÌØĞ§
+     * ç‰¹æ•ˆ
      */
     public void xdraw(int mode);
 
     /**
-     * Çå³ıÆÁÄ»»º³åÇø
+     * æ¸…é™¤å±å¹•ç¼“å†²åŒº
      */
     public void clearBuffer();
 
     /**
-     * Ë¢ĞÂÆÁÄ»»º³åÇøµ½ÆÁÄ»<p>
-     * ×¢Òâ,¸Ã·½·¨»á×Ô¶¯µ÷ÓÃScreenModelµÄfireScreenChanged·½·¨
+     * åˆ·æ–°å±å¹•ç¼“å†²åŒºåˆ°å±å¹•<p>
+     * æ³¨æ„,è¯¥æ–¹æ³•ä¼šè‡ªåŠ¨è°ƒç”¨ScreenModelçš„fireScreenChangedæ–¹æ³•
      * @see ScreenModel#fireScreenChanged()
      */
     public void refresh();

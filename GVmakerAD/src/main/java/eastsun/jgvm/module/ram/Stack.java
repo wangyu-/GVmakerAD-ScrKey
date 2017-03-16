@@ -1,7 +1,7 @@
 package eastsun.jgvm.module.ram;
 
 /**
- * GVMµÄÕ»Ä£¿é
+ * GVMçš„æ ˆæ¨¡å—
  * @author Eastsun
  * @version 1.0 2008/1/21
  */
@@ -17,8 +17,8 @@ public final class Stack {
     }
 
     /**
-     * ÍùÕ»Ñ¹ÈëÊı¾İ,Õ»Ö¸Õë¼ÓÒ»
-     * @param data Êı¾İ
+     * å¾€æ ˆå‹å…¥æ•°æ®,æ ˆæŒ‡é’ˆåŠ ä¸€
+     * @param data æ•°æ®
      */
     public void push(int data) {
         last = data;
@@ -26,7 +26,7 @@ public final class Stack {
     }
 
     /**
-     * µ¯³öÒ»¸öÊı¾İ,Ö¸Õë¼õÒ»
+     * å¼¹å‡ºä¸€ä¸ªæ•°æ®,æŒ‡é’ˆå‡ä¸€
      * @return data
      */
     public int pop() {
@@ -35,9 +35,9 @@ public final class Stack {
     }
 
     /**
-     * ¶ÁÈ¡¾àÕ»¶¥offsetµÄÊı¾İ,µ«²»¸Ä±äÕ»Ö¸Õë.
-     * peek(-1) ==pop(),¶øpeek(-2)µÄÖµÓëpop()ºóµÄpop()ÏàÍ¬,ÓàÀàÍÆ.
-     * @param offset Óû¶ÁÊı¾İÎ»ÖÃÏà¶ÔÕ»¶¥µÄÆ«ÒÆÁ¿
+     * è¯»å–è·æ ˆé¡¶offsetçš„æ•°æ®,ä½†ä¸æ”¹å˜æ ˆæŒ‡é’ˆ.
+     * peek(-1) ==pop(),è€Œpeek(-2)çš„å€¼ä¸pop()åçš„pop()ç›¸åŒ,ä½™ç±»æ¨.
+     * @param offset æ¬²è¯»æ•°æ®ä½ç½®ç›¸å¯¹æ ˆé¡¶çš„åç§»é‡
      * @return data
      */
     public int peek(int offset) {
@@ -45,7 +45,7 @@ public final class Stack {
     }
 
     /**
-     * ×î½üÒ»´Îµ¯³ö|Ñ¹ÈëµÄÖµ
+     * æœ€è¿‘ä¸€æ¬¡å¼¹å‡º|å‹å…¥çš„å€¼
      * @return lastValue
      */
     public int lastValue() {
@@ -53,7 +53,7 @@ public final class Stack {
     }
 
     /**
-     * µÃµ½Õ»Ö¸Õë,ÆäÖµÓëµ±Ç°Õ»ÖĞÊı¾İ¸öÊıÏàÍ¬
+     * å¾—åˆ°æ ˆæŒ‡é’ˆ,å…¶å€¼ä¸å½“å‰æ ˆä¸­æ•°æ®ä¸ªæ•°ç›¸åŒ
      * @return pointer
      */
     public int getPointer() {
@@ -61,7 +61,7 @@ public final class Stack {
     }
 
     /**
-     * µÃµ½´ËstackµÄ´óĞ¡(µ¥Î»int)
+     * å¾—åˆ°æ­¤stackçš„å¤§å°(å•ä½int)
      * @return size
      */
     public int size() {
@@ -69,9 +69,9 @@ public final class Stack {
     }
 
     /**
-     * ĞŞ¸ÄÕ»Ö¸Õë,ĞŞ¸ÄºóµÄÖ¸ÕëÖµµÈÓÚgetPointer()+offset
-     * @param offset Æ«ÒÆÖµ
-     * @return ĞŞ¸ÄºóµÄpointerÖµ
+     * ä¿®æ”¹æ ˆæŒ‡é’ˆ,ä¿®æ”¹åçš„æŒ‡é’ˆå€¼ç­‰äºgetPointer()+offset
+     * @param offset åç§»å€¼
+     * @return ä¿®æ”¹åçš„pointerå€¼
      */
     public int movePointer(int offset) {
         pointer += offset;
@@ -79,7 +79,7 @@ public final class Stack {
     }
 
     /**
-     * Õ»Ö¸Õë¹éÁã
+     * æ ˆæŒ‡é’ˆå½’é›¶
      */
     public void clear() {
         pointer = 0;

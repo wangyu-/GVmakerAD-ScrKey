@@ -2,15 +2,15 @@ package eastsun.jgvm.module.event;
 
 import eastsun.jgvm.module.ScreenModel;
 /**
- * GVMÆÁÄ»×´Ì¬¼àÌıÆ÷
+ * GVMå±å¹•çŠ¶æ€ç›‘å¬å™¨
  * @author Eastsun
  */
 public interface ScreenChangeListener {
 
     /**
-     * ÆÁÄ»×´Ì¬·¢ÉúÁË±ä»¯Ê±µ÷ÓÃ´Ë·½·¨
-     * @param screenModel ·¢Éú±ä»¯µÄScreenModel
-     * @param area ·¢Éú±ä»¯µÄÇøÓò,¸ÃÇøÓòÈ·±£ÔÚÆÁÄ»·¶Î§ÄÚ
+     * å±å¹•çŠ¶æ€å‘ç”Ÿäº†å˜åŒ–æ—¶è°ƒç”¨æ­¤æ–¹æ³•
+     * @param screenModel å‘ç”Ÿå˜åŒ–çš„ScreenModel
+     * @param area å‘ç”Ÿå˜åŒ–çš„åŒºåŸŸ,è¯¥åŒºåŸŸç¡®ä¿åœ¨å±å¹•èŒƒå›´å†…
      */
     void screenChanged(ScreenModel screenModel, Area area);
 }

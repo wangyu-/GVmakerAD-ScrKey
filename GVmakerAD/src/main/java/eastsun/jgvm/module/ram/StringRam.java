@@ -3,7 +3,7 @@ package eastsun.jgvm.module.ram;
 import eastsun.jgvm.module.LavApp;
 
 /**
- * ×Ö·û´®¶ÑÄÚ´æÄ£¿é
+ * å­—ç¬¦ä¸²å †å†…å­˜æ¨¡å—
  * @author Eastsun
  * @version 1.0 2008/1/19
  */
@@ -18,9 +18,9 @@ public final class StringRam implements Ram {
     }
 
     /**
-     * ´ÓlavÎÄ¼şÖĞ¶ÁÈ¡Ò»¸öÒÔ0½áÎ²µÄ×Ö·û´®Êı×é
-     * @param source Êı¾İÔ´
-     * @return addr Õâ¸öÊı¾İ±£´æÔÚStringRamÖĞµÄµØÖ·
+     * ä»lavæ–‡ä»¶ä¸­è¯»å–ä¸€ä¸ªä»¥0ç»“å°¾çš„å­—ç¬¦ä¸²æ•°ç»„
+     * @param source æ•°æ®æº
+     * @return addr è¿™ä¸ªæ•°æ®ä¿å­˜åœ¨StringRamä¸­çš„åœ°å€
      */
     public int addString(LavApp source) {
         int addr = offset + startAddr;
@@ -36,12 +36,12 @@ public final class StringRam implements Ram {
     }
 
     /**
-     * ¸ÃRam²»ÔÊĞíÖ±½ÓĞ´ÄÚ´æ,Ö»ÄÜÍ¨¹ıaddString()·½·¨ÏëÀïÃæĞ´Êı¾İ
-     * @throws IndexOutOfBoundsException µ÷ÓÃ´Ë·½·¨×ÜÊÇÅ×³ö¸ÃÒì³£
+     * è¯¥Ramä¸å…è®¸ç›´æ¥å†™å†…å­˜,åªèƒ½é€šè¿‡addString()æ–¹æ³•æƒ³é‡Œé¢å†™æ•°æ®
+     * @throws IndexOutOfBoundsException è°ƒç”¨æ­¤æ–¹æ³•æ€»æ˜¯æŠ›å‡ºè¯¥å¼‚å¸¸
      * @see #addString(LavApp)
      */
     public void setByte(int addr, byte data) {
-        throw new IndexOutOfBoundsException("³£×Ö·û´®²»ÄÜĞŞ¸Ä: " + addr);
+        throw new IndexOutOfBoundsException("å¸¸å­—ç¬¦ä¸²ä¸èƒ½ä¿®æ”¹: " + addr);
     }
 
     /**

@@ -5,37 +5,37 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 /**
- * ĞéÄâÎÄ¼ş,Ê¹ÓÃÄÚ´æÄ£ÄâÎÄ¼ş²Ù×÷<p>
- * Ã¿¸öĞéÄâÎÄ¼ş³ıÁË¶ÁĞ´Êı¾İÍâ,»¹ÓĞÈı¸öÊôĞÔ:position,limit,capacity<p>
- *     ÆäcapacityÃèÊöÁËÕâ¸öĞéÄâÎÄ¼şµ±Ç°ÄÜÈİÄÉµÄ×î´óÊı¾İÁ¿,Õâ¸öÖµ²»ÄÜ´ÓÍâ²¿ĞŞ¸Ä,µ«ÔÚÏòÆäĞ´ÈëÊı¾İÊ±¸ù¾İĞèÒªÄÚ²¿»áÊÊµ±À©³äÆäcapacity<p>
- *     limitÃèÊöµÄÊÇĞéÄâÎÄ¼şµ±Ç°´æ´¢µÄÊı¾İ×ÜÁ¿,Íâ²¿¿ÉÒÔ¶ÁÈ¡»òĞŞ¸Ä»òÔö¼ÓÊı¾İµ½ĞéÄâÎÄ¼ş.Õâ¸öÖµÔÚµ÷ÓÃreadFromStreamÊ±×Ô¶¯³õÊ¼»¯,²¢ÇÒÄÚ²¿×Ô¶¯Î¬»¤<p>
- *     position±íÊ¾ÏÂÒ»¸ö¶Á/Ğ´Êı¾İµÄµØÖ·,Ïàµ±ÓÚÆÕÍ¨ÎÄ¼ş²Ù×÷ÖĞµÄÎÄ¼şÖ¸Õë.Æä³õÊ¼ÖµÓ¦¸ÃÓÉµ÷ÓÃÕßÔÚµ÷ÓÃreadFromStream·½·¨ºóÕıÈ·ÉèÖÃ<p>
- * ¶ÔÓÚÒ»¸öº¬ÓĞÊı¾İ,²¢ÕıÈ·³õÊ¼»¯µÄVirtualFile,Ó¦ÓĞÒÔÏÂ¹ØÏµ³ÉÁ¢:<p>
+ * è™šæ‹Ÿæ–‡ä»¶,ä½¿ç”¨å†…å­˜æ¨¡æ‹Ÿæ–‡ä»¶æ“ä½œ<p>
+ * æ¯ä¸ªè™šæ‹Ÿæ–‡ä»¶é™¤äº†è¯»å†™æ•°æ®å¤–,è¿˜æœ‰ä¸‰ä¸ªå±æ€§:position,limit,capacity<p>
+ *     å…¶capacityæè¿°äº†è¿™ä¸ªè™šæ‹Ÿæ–‡ä»¶å½“å‰èƒ½å®¹çº³çš„æœ€å¤§æ•°æ®é‡,è¿™ä¸ªå€¼ä¸èƒ½ä»å¤–éƒ¨ä¿®æ”¹,ä½†åœ¨å‘å…¶å†™å…¥æ•°æ®æ—¶æ ¹æ®éœ€è¦å†…éƒ¨ä¼šé€‚å½“æ‰©å……å…¶capacity<p>
+ *     limitæè¿°çš„æ˜¯è™šæ‹Ÿæ–‡ä»¶å½“å‰å­˜å‚¨çš„æ•°æ®æ€»é‡,å¤–éƒ¨å¯ä»¥è¯»å–æˆ–ä¿®æ”¹æˆ–å¢åŠ æ•°æ®åˆ°è™šæ‹Ÿæ–‡ä»¶.è¿™ä¸ªå€¼åœ¨è°ƒç”¨readFromStreamæ—¶è‡ªåŠ¨åˆå§‹åŒ–,å¹¶ä¸”å†…éƒ¨è‡ªåŠ¨ç»´æŠ¤<p>
+ *     positionè¡¨ç¤ºä¸‹ä¸€ä¸ªè¯»/å†™æ•°æ®çš„åœ°å€,ç›¸å½“äºæ™®é€šæ–‡ä»¶æ“ä½œä¸­çš„æ–‡ä»¶æŒ‡é’ˆ.å…¶åˆå§‹å€¼åº”è¯¥ç”±è°ƒç”¨è€…åœ¨è°ƒç”¨readFromStreamæ–¹æ³•åæ­£ç¡®è®¾ç½®<p>
+ * å¯¹äºä¸€ä¸ªå«æœ‰æ•°æ®,å¹¶æ­£ç¡®åˆå§‹åŒ–çš„VirtualFile,åº”æœ‰ä»¥ä¸‹å…³ç³»æˆç«‹:<p>
  *     0<=position<=limit<=capacity
  * @author Eastsun
  * @version 2008-2-25
  */
 final class VirtualFile {
 
-    //Ã¿´ÎÔöÁ¿µÄ×îĞ¡Öµ:128K
+    //æ¯æ¬¡å¢é‡çš„æœ€å°å€¼:128K
     private static final int MIN_ADD_CAPS = 0x20000;
     private static final int MAX_COUNT = 30;
 
-    //ÄÚ´æ¿é,×î¶àÖ§³Ö10¿é,Ò²¾ÍÊÇ1280K,¶ÔGVmakerÀ´Ëµ×ã¹»ÁË
+    //å†…å­˜å—,æœ€å¤šæ”¯æŒ10å—,ä¹Ÿå°±æ˜¯1280K,å¯¹GVmakeræ¥è¯´è¶³å¤Ÿäº†
     private byte[][] bufs = new byte[MAX_COUNT][];
-    //caps[k]±íÊ¾µÚ0,..k-1¿éÄÚ´æµÄ×ÜÈİÁ¿
+    //caps[k]è¡¨ç¤ºç¬¬0,..k-1å—å†…å­˜çš„æ€»å®¹é‡
     private int[] caps = new int[MAX_COUNT + 1];
-    //ÄÚ´æ¿éÊıÁ¿
+    //å†…å­˜å—æ•°é‡
     private int count;
-    //µ±Ç°ËùÔÚÄÚ´æ¿éÏÂ±ê
+    //å½“å‰æ‰€åœ¨å†…å­˜å—ä¸‹æ ‡
     private int index;
-    //ÎÄ¼ş³¤¶È
+    //æ–‡ä»¶é•¿åº¦
     private int limit;
     //the index of the next element to be read or written
     private int position;
 
     /**
-     * Ê¹ÓÃÒ»¸ö³õÊ¼ÈİÁ¿¹¹ÔìVirtualFile
+     * ä½¿ç”¨ä¸€ä¸ªåˆå§‹å®¹é‡æ„é€ VirtualFile
      * @param size
      */
     public VirtualFile(int size) {
@@ -47,7 +47,7 @@ final class VirtualFile {
     }
 
     /**
-     * µÃµ½¸ÃVirtualFile×ÜÈİÁ¿
+     * å¾—åˆ°è¯¥VirtualFileæ€»å®¹é‡
      * @return capacity
      */
     public int capacity() {
@@ -55,7 +55,7 @@ final class VirtualFile {
     }
 
     /**
-     * µÃµ½VirtualFileÖĞÊµ¼Ê´æ´¢Êı¾İµÄ³¤¶È,Ò²¾ÍÊÇÎÄ¼şµÄ³¤¶È
+     * å¾—åˆ°VirtualFileä¸­å®é™…å­˜å‚¨æ•°æ®çš„é•¿åº¦,ä¹Ÿå°±æ˜¯æ–‡ä»¶çš„é•¿åº¦
      * @return length of file
      */
     public int limit() {
@@ -63,7 +63,7 @@ final class VirtualFile {
     }
 
     /**
-     * µÃµ½VirtualFileÖĞµÄ¶ÁĞ´Ö¸ÕëÎ»ÖÃ,Ò²¾ÍÊÇÎÄ¼şÖ¸Õë
+     * å¾—åˆ°VirtualFileä¸­çš„è¯»å†™æŒ‡é’ˆä½ç½®,ä¹Ÿå°±æ˜¯æ–‡ä»¶æŒ‡é’ˆ
      * @return position
      */
     public int position() {
@@ -71,16 +71,16 @@ final class VirtualFile {
     }
 
     /**
-     * ÉèÖÃÎÄ¼şÖ¸Õë
-     * @param newPos ĞÂµÄÖ¸ÕëÎ»ÖÃ
-     * @return newPos ÉèÖÃºóµÄÖ¸Õë,Èô³ö´í·µ»Ø-1
+     * è®¾ç½®æ–‡ä»¶æŒ‡é’ˆ
+     * @param newPos æ–°çš„æŒ‡é’ˆä½ç½®
+     * @return newPos è®¾ç½®åçš„æŒ‡é’ˆ,è‹¥å‡ºé”™è¿”å›-1
      */
     public int position(int newPos) {
         if (newPos < 0 || newPos > limit) {
             return -1;
         }
         position = newPos;
-        //ĞŞ¸Äindex,Ê¹ÆäÂú×ãcaps[index]<=position<caps[index+1]
+        //ä¿®æ”¹index,ä½¿å…¶æ»¡è¶³caps[index]<=position<caps[index+1]
         while (index < MAX_COUNT && caps[index] < caps[index + 1] && caps[index + 1] <= position) {
             index++;
         }
@@ -91,8 +91,8 @@ final class VirtualFile {
     }
 
     /**
-     * ¶ÁÈ¡ÎÄ¼şÊı¾İ,²¢ÇÒposition¼Ó1
-     * @return µ±Ç°position³öµÄÎÄ¼şÄÚÈİ;ÈôÒÑµ½ÎÄ¼şÎ»(>=limit()),·µ»Ø-1
+     * è¯»å–æ–‡ä»¶æ•°æ®,å¹¶ä¸”positionåŠ 1
+     * @return å½“å‰positionå‡ºçš„æ–‡ä»¶å†…å®¹;è‹¥å·²åˆ°æ–‡ä»¶ä½(>=limit()),è¿”å›-1
      */
     public int getc() {
         if (position >= limit) {
@@ -123,24 +123,24 @@ final class VirtualFile {
     }
 
     /**
-     * ½«position,limitÇåÁã
+     * å°†position,limitæ¸…é›¶
      */
     public void refresh() {
         index = position = limit = 0;
     }
 
     /**
-     * ´Óin¶ÁÈ¡Êı¾İµ½VirtualFile,³õÊ¼limitµÄÖµÎª´Óin¶ÁÈ¡µÄÊıÁ¿³¤¶È<p>
-     * ²Ù×÷Íê³Éºó¹Ø±Õin
-     * @param in Êı¾İÀ´Ô´
-     * @throws java.io.IOException ·¢ÉúIO´íÎó
+     * ä»inè¯»å–æ•°æ®åˆ°VirtualFile,åˆå§‹limitçš„å€¼ä¸ºä»inè¯»å–çš„æ•°é‡é•¿åº¦<p>
+     * æ“ä½œå®Œæˆåå…³é—­in
+     * @param in æ•°æ®æ¥æº
+     * @throws java.io.IOException å‘ç”ŸIOé”™è¯¯
      */
     public void readFromStream(InputStream in) throws IOException {
         limit = 0;
         int length;
         int n = 0;
         for (;;) {
-            //ĞèÒªÔö¼ÓÈİÁ¿
+            //éœ€è¦å¢åŠ å®¹é‡
             if (n == count) {
                 bufs[n] = new byte[MIN_ADD_CAPS];
                 for (int k = n + 1; k <= MAX_COUNT; k++) {
@@ -163,10 +163,10 @@ final class VirtualFile {
     }
 
     /**
-     * ½«VirtualFileÖĞµÄÄÚÈİĞ´Èëµ½out<p>
-     * ²Ù×÷Íê³Éºó¹Ø±Õout
-     * @param out Ğ´ÈëÄ¿±ê
-     * @throws java.io.IOException ·¢ÉúIO´íÎó
+     * å°†VirtualFileä¸­çš„å†…å®¹å†™å…¥åˆ°out<p>
+     * æ“ä½œå®Œæˆåå…³é—­out
+     * @param out å†™å…¥ç›®æ ‡
+     * @throws java.io.IOException å‘ç”ŸIOé”™è¯¯
      */
     public void writeToStream(OutputStream out) throws IOException {
         int n = 0;
@@ -178,13 +178,13 @@ final class VirtualFile {
         }
         out.close();
     }
-    //È·±£ÖÁÉÙÓĞminCap´óĞ¡µÄÄÚ´æ¿ÉÓÃ
+    //ç¡®ä¿è‡³å°‘æœ‰minCapå¤§å°çš„å†…å­˜å¯ç”¨
 
     private void ensureCapacity(int minCap) {
         if (caps[count] >= minCap) {
             return;
         }
-        //Ã¿´ÎÖÁÉÙÔö¼Ó128K
+        //æ¯æ¬¡è‡³å°‘å¢åŠ 128K
         int addCap = Math.max(MIN_ADD_CAPS, minCap - caps[count]);
         bufs[count] = new byte[addCap];
         for (int n = count + 1; n <= MAX_COUNT; n++) {

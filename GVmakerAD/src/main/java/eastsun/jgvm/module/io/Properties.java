@@ -42,9 +42,9 @@ public class Properties {
     }
 
     /**
-     * µÃµ½Ö¸¶¨ÊôĞÔµÄÖµ
-     * @param name ÊôĞÔÃû
-     * @return  ¶ÔÓ¦µÄÖµ;Èç¹û¸ÃÊôĞÔ²»´æÔÚ,·µ»Ønull
+     * å¾—åˆ°æŒ‡å®šå±æ€§çš„å€¼
+     * @param name å±æ€§å
+     * @return  å¯¹åº”çš„å€¼;å¦‚æœè¯¥å±æ€§ä¸å­˜åœ¨,è¿”å›null
      */
     public String getProperty(String name) {
         return (String) ht.get(name);

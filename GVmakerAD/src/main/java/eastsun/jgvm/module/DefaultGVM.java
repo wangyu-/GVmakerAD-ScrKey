@@ -12,7 +12,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
- * ÍêÈ«Ö§³ÖGVmaker1.0µÄJGVMÊµÏÖ
+ * å®Œå…¨æ”¯æŒGVmaker1.0çš„JGVMå®ç°
  * @version 1.0 2008/1/15
  * @author Eastsun
  */
@@ -63,9 +63,9 @@ final class DefaultGVM extends JGVM {
     }
 
     /**
-     * ÉèÖÃ´ËGVMÔËĞĞµÄlav³ÌĞòÎÄ¼ş,²¢¶ÔJGVM×öÊÊµ±µÄ³õÊ¼»¯
-     * @param app GVmaker³ÌĞò
-     * @throws java.lang.IllegalStateException Èç¹û²»Ö§³Ö´ËappµÄÔËĞĞ
+     * è®¾ç½®æ­¤GVMè¿è¡Œçš„lavç¨‹åºæ–‡ä»¶,å¹¶å¯¹JGVMåšé€‚å½“çš„åˆå§‹åŒ–
+     * @param app GVmakerç¨‹åº
+     * @throws java.lang.IllegalStateException å¦‚æœä¸æ”¯æŒæ­¤appçš„è¿è¡Œ
      */
     public void loadApp(LavApp app) throws IllegalStateException {
         if (this.app != null) {
@@ -76,7 +76,7 @@ final class DefaultGVM extends JGVM {
     }
 
     /**
-     * Ğ¶È¥Ä¿Ç°Ö´ĞĞµÄapp,²¢ÊÍ·Å¼°ÇåÀíÏàÓ¦×ÊÔ´
+     * å¸å»ç›®å‰æ‰§è¡Œçš„app,å¹¶é‡Šæ”¾åŠæ¸…ç†ç›¸åº”èµ„æº
      */
     public void dispose() {
         if (this.app == null) {
@@ -102,13 +102,13 @@ final class DefaultGVM extends JGVM {
     }
 
     /**
-     * ÔËĞĞÏÂÒ»¸öÖ¸Áî
-     * @throws java.lang.IllegalStateException ³ÌĞòÒÑ¾­½áÊø»ò²»Ö§³ÖµÄ²Ù×÷
-     * @throws InterruptedException ÔËĞĞÆÚ¼äµ±Ç°Ïß³Ì±»ÖĞ¶Ï
+     * è¿è¡Œä¸‹ä¸€ä¸ªæŒ‡ä»¤
+     * @throws java.lang.IllegalStateException ç¨‹åºå·²ç»ç»“æŸæˆ–ä¸æ”¯æŒçš„æ“ä½œ
+     * @throws InterruptedException è¿è¡ŒæœŸé—´å½“å‰çº¿ç¨‹è¢«ä¸­æ–­
      */
     public void nextStep() throws IllegalStateException, InterruptedException {
         if (isEnd()) {
-            throw new IllegalStateException("³ÌĞòÒÑ¾­ÖÕÖ¹!");
+            throw new IllegalStateException("ç¨‹åºå·²ç»ç»ˆæ­¢!");
         }
         int cmd = app.getChar();
         //System.out.println(Integer.toHexString(cmd));
@@ -210,7 +210,7 @@ final class DefaultGVM extends JGVM {
                     int len = (data >>> 16) & 0x7f;
                     int value = ramManager.getBytes(addr, len);
                     if (len == 2) {
-                        //lvmµÄintÎªÓĞ·ûºÅÁ½×Ö½ÚÊı¾İ
+                        //lvmçš„intä¸ºæœ‰ç¬¦å·ä¸¤å­—èŠ‚æ•°æ®
                         value = (short) value;
                     }
                     switch (cmd) {
@@ -431,7 +431,7 @@ final class DefaultGVM extends JGVM {
                     byte b;
                     while (--len >= 0) {
                         //ramManager.setChar(addr++, app.getChar());
-                        //Õı³£GVmakerÖĞ,ÕâĞ©Êı¾İÊÇ±£´æÔÚruntimeRamÖĞ
+                        //æ­£å¸¸GVmakerä¸­,è¿™äº›æ•°æ®æ˜¯ä¿å­˜åœ¨runtimeRamä¸­
                         b = (byte) app.getChar();
                         runtimeRam.setByte(addr++, b);
                     }
@@ -441,7 +441,7 @@ final class DefaultGVM extends JGVM {
                 stack.push(screen.getBufferRam().getStartAddr());
                 break;
             case 0x43:
-                throw new IllegalStateException("Î´ÖªµÄÖ¸Áî: 0x43");
+                throw new IllegalStateException("æœªçŸ¥çš„æŒ‡ä»¤: 0x43");
             case 0x44:
                 //loadall
                 break;
@@ -514,7 +514,7 @@ final class DefaultGVM extends JGVM {
                         b = ramManager.getByte(source++);
                         ramManager.setByte(dest++, b);
                     } while (b != 0);
-                //Õâ¸öÓ¦¸Ã²»»á¸Ä±äÏÔ´æÓëÆÁÄ»»º³å,µ«¿ÉÄÜĞŞ¸ÄÎÄ±¾»º³åÒÔ¼°¶ÁÈ¡×Ö·û¶Ñ
+                //è¿™ä¸ªåº”è¯¥ä¸ä¼šæ”¹å˜æ˜¾å­˜ä¸å±å¹•ç¼“å†²,ä½†å¯èƒ½ä¿®æ”¹æ–‡æœ¬ç¼“å†²ä»¥åŠè¯»å–å­—ç¬¦å †
                 }
                 break;
             case 0x84:
@@ -777,7 +777,7 @@ final class DefaultGVM extends JGVM {
             //strcat
             case 0xa6:
                  {
-                    //²»»áĞŞ¸ÄÏÔ´æÏà¹Ø
+                    //ä¸ä¼šä¿®æ”¹æ˜¾å­˜ç›¸å…³
                     int src = stack.pop() & 0xffff;
                     int dst = stack.pop() & 0xffff;
                     while (ramManager.getByte(dst) != 0) {
@@ -1055,10 +1055,10 @@ final class DefaultGVM extends JGVM {
                 break;
             //setTime
             case 0xc3:
-                //ºöÂÔÖ®
+                //å¿½ç•¥ä¹‹
                 stack.pop();
                 break;
-//                throw new IllegalStateException("²»Ö§³ÖµÄº¯Êı: SetTime");
+//                throw new IllegalStateException("ä¸æ”¯æŒçš„å‡½æ•°: SetTime");
             //getWord
             case 0xc4:
                  {
@@ -1107,7 +1107,7 @@ final class DefaultGVM extends JGVM {
                 }
                 break;
             case 0xca:
-                throw new IllegalStateException("²»Ö§³ÖµÄº¯Êı: FillArea");
+                throw new IllegalStateException("ä¸æ”¯æŒçš„å‡½æ•°: FillArea");
         }
     }
 
@@ -1133,7 +1133,7 @@ final class DefaultGVM extends JGVM {
         int maxRow = screen.getHeight() / 13;
         int first = 0, current = 0;
         for (;;) {
-            //»æÖÆÎÄ¼şÃûÓë·´ÏÔÌõ
+            //ç»˜åˆ¶æ–‡ä»¶åä¸åæ˜¾æ¡
             render.setDrawMode(Renderable.RENDER_FILL_TYPE |
                     Renderable.DRAW_CLEAR_TYPE |
                     Renderable.RENDER_GRAPH_TYPE);
@@ -1148,7 +1148,7 @@ final class DefaultGVM extends JGVM {
                     Renderable.RENDER_GRAPH_TYPE);
             render.drawRect(0, 13 * current, screen.getWidth(), 13 * current + 12);
             screen.fireScreenChanged();
-            //½ÓÊÜ°´¼ü
+            //æ¥å—æŒ‰é”®
             for (;;) {
                 int keyValue = key.getRawKey();
                 if (keyValue == keyInf.getEnter()) {
@@ -1223,12 +1223,12 @@ final class DefaultGVM extends JGVM {
 
     private void sprintf() {
         int paramCount = stack.pop() & 0xff;
-        //µ¯³ö²ÎÊı
+        //å¼¹å‡ºå‚æ•°
         stack.movePointer(-paramCount);
         int index = 0;
-        //±£´æ×Ö·û´®µÄµØÖ·
+        //ä¿å­˜å­—ç¬¦ä¸²çš„åœ°å€
         int data = stack.peek(index++) & 0xffff;
-        //¸ñÊ½»¯×Ö·û´®ÆğÊ¼µØÖ·
+        //æ ¼å¼åŒ–å­—ç¬¦ä¸²èµ·å§‹åœ°å€
         int addr = stack.peek(index++) & 0xffff;
         byte fstr, t, b;
         while ((fstr = ramManager.getByte(addr++)) != 0) {
@@ -1276,10 +1276,10 @@ final class DefaultGVM extends JGVM {
 
     private void printf() {
         int paramCount = stack.pop() & 0xff;
-        //µ¯³ö²ÎÊı
+        //å¼¹å‡ºå‚æ•°
         stack.movePointer(-paramCount);
         int index = 0;
-        //¸ñÊ½»¯×Ö·û´®ÆğÊ¼µØÖ·
+        //æ ¼å¼åŒ–å­—ç¬¦ä¸²èµ·å§‹åœ°å€
         int addr = stack.peek(index++) & 0xffff;
         byte fstr, data, b;
         char c;

@@ -3,8 +3,8 @@ package eastsun.jgvm.module.io;
 import eastsun.jgvm.module.KeyModel;
 
 /**
- * KeyModelµÄÄ¬ÈÏÊµÏÖ<p>
- * ¸ÃÊµÏÖÌá¹©ÁËÁ½¸ö»Øµ÷·½·¨:keyReleasedÓëKeyPressed,µ±ÏµÍ³°´¼ü·¢Éú±ä»¯Ê±Ó¦µ±È·±£µ÷ÓÃÕâĞ©·½·¨
+ * KeyModelçš„é»˜è®¤å®ç°<p>
+ * è¯¥å®ç°æä¾›äº†ä¸¤ä¸ªå›è°ƒæ–¹æ³•:keyReleasedä¸KeyPressed,å½“ç³»ç»ŸæŒ‰é”®å‘ç”Ÿå˜åŒ–æ—¶åº”å½“ç¡®ä¿è°ƒç”¨è¿™äº›æ–¹æ³•
  * @author Eastsun
  * @version 2008-2-21
  */

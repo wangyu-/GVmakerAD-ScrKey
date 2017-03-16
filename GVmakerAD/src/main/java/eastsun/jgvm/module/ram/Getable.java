@@ -12,10 +12,10 @@ package eastsun.jgvm.module.ram;
 public interface Getable {
 
     /**
-     * 读取地址addr处的数据
-     * @param addr 地址
+     * 璇诲彇鍦板潃addr澶勭殑鏁版嵁
+     * @param addr 鍦板潃
      * @return data
-     * @throws java.lang.IndexOutOfBoundsException 访问越界
+     * @throws java.lang.IndexOutOfBoundsException 璁块棶瓒婄晫
      */
     byte getByte(int addr) throws IndexOutOfBoundsException;
 }

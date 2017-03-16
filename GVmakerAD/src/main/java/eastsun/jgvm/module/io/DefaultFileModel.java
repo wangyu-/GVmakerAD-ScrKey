@@ -8,7 +8,7 @@ import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 
 /**
- * ÎÄ¼ş²Ù×÷Ä£ĞÍµÄÄ¬ÈÏÊµÏÖ,¸ÃÊµÏÖÍ¨¹ıFileSystem½Ó¿ÚµÃµ½±¾µØÎÄ¼şµÄÊäÈëÓëÊä³öÁ÷,²¢ÔÚÄÚ´æÖĞÄ£ÄâÎÄ¼şµÄ¸÷ÖÖ²Ù×÷
+ * æ–‡ä»¶æ“ä½œæ¨¡å‹çš„é»˜è®¤å®ç°,è¯¥å®ç°é€šè¿‡FileSystemæ¥å£å¾—åˆ°æœ¬åœ°æ–‡ä»¶çš„è¾“å…¥ä¸è¾“å‡ºæµ,å¹¶åœ¨å†…å­˜ä¸­æ¨¡æ‹Ÿæ–‡ä»¶çš„å„ç§æ“ä½œ
  * @author Eastsun
  * @version 2008-2-22
  */
@@ -29,7 +29,7 @@ public class DefaultFileModel implements FileModel {
     private static final int SEEK_SET = 0;
     private static final int SEEK_CUR = 1;
     private static final int SEEK_END = 2;
-    //Í¬Ê±·ÃÎÊÎÄ¼şµÄ×î´ó¸öÊı
+    //åŒæ—¶è®¿é—®æ–‡ä»¶çš„æœ€å¤§ä¸ªæ•°
     private final static int MAX_FILE_COUNT = 3;
     private FileSystem fileSys;
     private String workDir;
@@ -37,10 +37,10 @@ public class DefaultFileModel implements FileModel {
     private boolean[] canRead;
     private boolean[] canWrite;
     private String[] fileNames;
-    //ÊÇ·ñ¿ÉÓÃ,Ò²¾ÍÊÇÊÇ·ñ¿ÕÏĞ
+    //æ˜¯å¦å¯ç”¨,ä¹Ÿå°±æ˜¯æ˜¯å¦ç©ºé—²
     private boolean[] usable;
     private VirtualFile[] files;
-    //ÓÃÓÚÉú³ÉStringµÄbyteÊı×é
+    //ç”¨äºç”ŸæˆStringçš„byteæ•°ç»„
     private byte[] strBuf;
 
     public DefaultFileModel(FileSystem fileSys) {
@@ -55,7 +55,7 @@ public class DefaultFileModel implements FileModel {
 
         for (int index = 0; index < MAX_FILE_COUNT; index++) {
             usable[index] = true;
-            //³õÊ¼ÈİÁ¿:64K
+            //åˆå§‹å®¹é‡:64K
             files[index] = new VirtualFile(0x10000);
         }
         strBuf = new byte[400];
@@ -125,19 +125,19 @@ public class DefaultFileModel implements FileModel {
     }
 
     /**
-     * µÃµ½µ±Ç°Ä¿Â¼ÏÂµÄÎÄ¼ş¸öÊı
-     * @return ÎÄ¼ş¼Ğ¸öÊı
+     * å¾—åˆ°å½“å‰ç›®å½•ä¸‹çš„æ–‡ä»¶ä¸ªæ•°
+     * @return æ–‡ä»¶å¤¹ä¸ªæ•°
      */
     public int getFileNum() {
         return workDirInf.getFileNum();
     }
 
     /**
-     * µÃµ½µ±Ç°Ä¿Â¼ÏÂµÚstart¸ö¿ªÊ¼µÄnum¸öÎÄ¼şÃû,±£´æµ½namesÖĞ
-     * @param names ÓÃÓÚ±£´æÎÄ¼şÃûµÄStringÊı×é
-     * @param start ¿ªÊ¼ÎÄ¼şºÅ
-     * @param num   ¸öÊı
-     * @return      Êµ¼ÊµÃµ½µÄ¸öÊı,Èç³ö´í,·µ»Ø-1
+     * å¾—åˆ°å½“å‰ç›®å½•ä¸‹ç¬¬startä¸ªå¼€å§‹çš„numä¸ªæ–‡ä»¶å,ä¿å­˜åˆ°namesä¸­
+     * @param names ç”¨äºä¿å­˜æ–‡ä»¶åçš„Stringæ•°ç»„
+     * @param start å¼€å§‹æ–‡ä»¶å·
+     * @param num   ä¸ªæ•°
+     * @return      å®é™…å¾—åˆ°çš„ä¸ªæ•°,å¦‚å‡ºé”™,è¿”å›-1
      */
     public int listFiles(String[] names, int start, int num) {
         return workDirInf.listFiles(names, start, num);
@@ -145,9 +145,9 @@ public class DefaultFileModel implements FileModel {
 
     public int fopen(Getable source, int fileName, int openMode) {
         int num = -1;
-        //Ö¸Ê¾ÎÄ¼şÖ¸ÕëÎ»ÖÃ,true¿ªÍ·,falseÎª½áÎ²
+        //æŒ‡ç¤ºæ–‡ä»¶æŒ‡é’ˆä½ç½®,trueå¼€å¤´,falseä¸ºç»“å°¾
         boolean pointer = true;
-        //ÊÇ·ñÇå³ıÔ­ÓĞÎÄ¼ş
+        //æ˜¯å¦æ¸…é™¤åŸæœ‰æ–‡ä»¶
         boolean clear = false;
         for (int index = 0; index < MAX_FILE_COUNT; index++) {
             if (usable[index]) {
@@ -333,7 +333,7 @@ public class DefaultFileModel implements FileModel {
     public boolean deleteFile(Getable source, int addr) {
         String file = getFileName(source, addr);
         boolean result = fileSys.deleteFile(file);
-        //Èç¹ûµ±Ç°Ä¿Â¼ĞÅÏ¢±»ĞŞ¸Ä,ÖØÖÃÖ®
+        //å¦‚æœå½“å‰ç›®å½•ä¿¡æ¯è¢«ä¿®æ”¹,é‡ç½®ä¹‹
         if (result && isParent(workDir, file)) {
             workDirInf = fileSys.getFileInf(workDir);
         }
@@ -406,7 +406,7 @@ public class DefaultFileModel implements FileModel {
     }
 
     /**
-     * ÅĞ¶ÏdirÊÇ·ñÊÇfileµÄ¸¸Ä¿Â¼
+     * åˆ¤æ–­diræ˜¯å¦æ˜¯fileçš„çˆ¶ç›®å½•
      */
     private boolean isParent(String dir, String file) {
         if (file.startsWith(dir)) {

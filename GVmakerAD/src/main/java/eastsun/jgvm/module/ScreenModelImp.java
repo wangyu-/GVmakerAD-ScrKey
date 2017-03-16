@@ -9,26 +9,26 @@ import eastsun.jgvm.module.ram.RelativeRam;
 import eastsun.jgvm.module.ram.Setable;
 
 /**
- * ScreenModelµÄÊµÏÖÀà,¸ÃÀàÊµÏÖÁËRenderable½Ó¿Ú<p>
+ * ScreenModelçš„å®ç°ç±»,è¯¥ç±»å®ç°äº†Renderableæ¥å£<p>
  * @author Eastsun
  * @version 1.0 2008/1/19
  */
 final class ScreenModelImp extends ScreenModel implements Renderable {
 
     /**
-     * Ã¿ĞĞËùÓÃµÄ×Ö½ÚÊı
+     * æ¯è¡Œæ‰€ç”¨çš„å­—èŠ‚æ•°
      */
     private static final int BYTES_PER_LINE = WIDTH / 8;
     /**
-     * ÆÁÄ»ÏÔ´æĞèÒªµÄ×Ö½ÚÊı
-     * Ã¿ĞĞ20×Ö½Ú,¹²80ĞĞ
+     * å±å¹•æ˜¾å­˜éœ€è¦çš„å­—èŠ‚æ•°
+     * æ¯è¡Œ20å­—èŠ‚,å…±80è¡Œ
      */
     private static final int BUFFER_SIZE = WIDTH * HEIGHT / 8;
-    //ÏÔ´æÓë»º´æÊı¾İ
+    //æ˜¾å­˜ä¸ç¼“å­˜æ•°æ®
     private byte[] graphData,  bufferData;
     private RelativeRam graphRam,  bufferRam;
     private int drawMode;
-    //ÏÂÁĞ±äÁ¿ÓëdrawModeÓĞ¹Ø
+    //ä¸‹åˆ—å˜é‡ä¸drawModeæœ‰å…³
     private boolean isFill,  isGraph,  isBig;
     private byte[] currData;
 
@@ -68,7 +68,7 @@ final class ScreenModelImp extends ScreenModel implements Renderable {
     }
 
     public void drawString(int x, int y, Getable source, int addr, int length) {
-        //Õâ¸öµ÷ÓÃdrawRegionÊ±»áĞŞ¸ÄÇøÓò,ËùÒÔÕâ¶ù²»ĞèÒªÔÙĞŞ¸ÄÇøÓò
+        //è¿™ä¸ªè°ƒç”¨drawRegionæ—¶ä¼šä¿®æ”¹åŒºåŸŸ,æ‰€ä»¥è¿™å„¿ä¸éœ€è¦å†ä¿®æ”¹åŒºåŸŸ
         byte[] data = isBig ? new byte[32] : new byte[24];
         int h = isBig ? 16 : 12;
         Getable getter = Util.asAccessable(data);
@@ -132,7 +132,7 @@ final class ScreenModelImp extends ScreenModel implements Renderable {
     }
 
     /**
-     * ×öË®Æ½Ïß
+     * åšæ°´å¹³çº¿
      */
     private void hLine(int x1, int x2, int y) {
         if (y < 0 || y >= HEIGHT) {
@@ -190,7 +190,7 @@ final class ScreenModelImp extends ScreenModel implements Renderable {
         if (oy + b < 0 || oy - b >= HEIGHT) {
             return;
         }
-        //Ìí¼Óµ½ĞŞ¸ÄÇøÓò
+        //æ·»åŠ åˆ°ä¿®æ”¹åŒºåŸŸ
         if (isGraph) {
             addPoint(Math.max(0, ox - a), Math.max(0, oy - b));
             addPoint(Math.min(WIDTH - 1, ox + a), Math.min(HEIGHT - 1, oy + b));
@@ -259,8 +259,8 @@ final class ScreenModelImp extends ScreenModel implements Renderable {
     }
 
     /**
-     * ÓëdrawPoint²»Í¬µÄÊÇ,Õâ¸ö·½·¨²»ĞŞ¸ÄÇøÓò
-     * @return true,Èç¹û»æÖÆÁË¸Ãµã
+     * ä¸drawPointä¸åŒçš„æ˜¯,è¿™ä¸ªæ–¹æ³•ä¸ä¿®æ”¹åŒºåŸŸ
+     * @return true,å¦‚æœç»˜åˆ¶äº†è¯¥ç‚¹
      */
     private boolean drawPointImp(int x, int y) {
         if (x < 0 || y < 0 || x >= WIDTH || y >= HEIGHT) {
@@ -335,7 +335,7 @@ final class ScreenModelImp extends ScreenModel implements Renderable {
             }
         }
 
-        //Ìí¼Óµ½ĞŞ¸ÄÇøÓò
+        //æ·»åŠ åˆ°ä¿®æ”¹åŒºåŸŸ
         if (isGraph && flags) {
             addPoint(qx, py);
             addPoint(px, py);
@@ -353,9 +353,9 @@ final class ScreenModelImp extends ScreenModel implements Renderable {
         }
         //System.out.println("drawRegion " + x + "," + y + "," + width + "," + height + " isGraph:" + isGraph);
 
-        //Ã¿ĞĞÊı¾İÕ¼ÓÃbyteÊı
+        //æ¯è¡Œæ•°æ®å ç”¨byteæ•°
         int bytePerLine = (width + 7) >>> 3;
-        //Ã¿ĞĞ¿ªÊ¼µÚÒ»¸öÊı¾İÇ°ÎŞÓÃµÄbitÊı
+        //æ¯è¡Œå¼€å§‹ç¬¬ä¸€ä¸ªæ•°æ®å‰æ— ç”¨çš„bitæ•°
         int unuseDataBits = 0;
         if (x < 0) {
             addr += (-x) / 8;
@@ -375,23 +375,23 @@ final class ScreenModelImp extends ScreenModel implements Renderable {
             height -= y + height - HEIGHT;
         }
 
-        //Èç¹ûÊÇÆÁÄ»»æÍ¼,Ìí¼Óµ½ĞŞ¸ÄÇøÓò
+        //å¦‚æœæ˜¯å±å¹•ç»˜å›¾,æ·»åŠ åˆ°ä¿®æ”¹åŒºåŸŸ
         if (isGraph) {
             addPoint(x, y);
             addPoint(x + width - 1, y + height - 1);
         }
 
-        //»æÖÆ´¦Ç°ÎŞÓÃµÄbitÊı
+        //ç»˜åˆ¶å¤„å‰æ— ç”¨çš„bitæ•°
         int unuseScreenBits = x % 8;
-        //»æÖÆ¿ªÊ¼µØÖ·
+        //ç»˜åˆ¶å¼€å§‹åœ°å€
         int offset = BYTES_PER_LINE * y + x / 8;
-        //Êµ¼ÊÃ¿ĞĞÓÃµ½Êı¾İµÄbyteÊı
+        //å®é™…æ¯è¡Œç”¨åˆ°æ•°æ®çš„byteæ•°
         int count = (unuseDataBits + width + 7) / 8;
-        //Êµ¼Ê»æÖÆÓ°Ïìµ½µÄbyteÊı
+        //å®é™…ç»˜åˆ¶å½±å“åˆ°çš„byteæ•°
         int size = (unuseScreenBits + width + 7) / 8;
-        //»æÖÆ½áÎ²Ê£ÏÂµÄbitÊı
+        //ç»˜åˆ¶ç»“å°¾å‰©ä¸‹çš„bitæ•°
         int remain = size * 8 - unuseScreenBits - width;
-        //ÓÃÓÚ´æ´¢Í¼ÏñÊı¾İ
+        //ç”¨äºå­˜å‚¨å›¾åƒæ•°æ®
         byte[] mapData = new byte[count + 1];
         while (height-- > 0) {
             for (int index = 0; index < count; index++) {
@@ -443,11 +443,11 @@ final class ScreenModelImp extends ScreenModel implements Renderable {
     private static final byte[] maskT = {(byte) 0x00, (byte) 0x01, (byte) 0x03, (byte) 0x07, (byte) 0x0f, (byte) 0x1f, (byte) 0x3f, (byte) 0x7f};
 
     /**
-     * ½«dataÖĞoffsetÆğÊ¼´¦µÄlength¸öbyteÏò×ó»òÏòÓÒÒÆ¶¯det¸öbit
-     * @param data ĞèÒªĞŞ¸ÄµÄÊı¾İ
-     * @param offset Æ«ÒÆµØÖ·
-     * @param length ³¤¶È
-     * @param det ÎªÕıÔòÏò×óÒÆ¶¯,¸ºÔòÏòÓÒÒÆ¶¯
+     * å°†dataä¸­offsetèµ·å§‹å¤„çš„lengthä¸ªbyteå‘å·¦æˆ–å‘å³ç§»åŠ¨detä¸ªbit
+     * @param data éœ€è¦ä¿®æ”¹çš„æ•°æ®
+     * @param offset åç§»åœ°å€
+     * @param length é•¿åº¦
+     * @param det ä¸ºæ­£åˆ™å‘å·¦ç§»åŠ¨,è´Ÿåˆ™å‘å³ç§»åŠ¨
      */
     private void adjustData(byte[] data, int offset, int length, int det) {
         if (det == 0) {
@@ -482,12 +482,12 @@ final class ScreenModelImp extends ScreenModel implements Renderable {
     }
 
     /**
-     * ¸Ã·½·¨²»¶Ôx,y,width,height¼ì²é,¿ÉÄÜ»áÅ×³öIndexOutOfBoundsException
+     * è¯¥æ–¹æ³•ä¸å¯¹x,y,width,heightæ£€æŸ¥,å¯èƒ½ä¼šæŠ›å‡ºIndexOutOfBoundsException
      */
     public int getRegion(int x, int y, int width, int height, Setable dest, int addr) {
-        //Ã¿ĞĞÕ¼ÓÃµÄbyteÊı,ºöÂÔµÍ3Î»
+        //æ¯è¡Œå ç”¨çš„byteæ•°,å¿½ç•¥ä½3ä½
         int bytePerLine = width / 8;
-        //Í¼Æ¬Êı¾İÔÚÏÔ´æÖĞ¿ªÊ¼µØÖ·,xºöÂÔµÍÈıÎ»
+        //å›¾ç‰‡æ•°æ®åœ¨æ˜¾å­˜ä¸­å¼€å§‹åœ°å€,xå¿½ç•¥ä½ä¸‰ä½
         int dataOffset = y * BYTES_PER_LINE + x / 8;
         int size = height * bytePerLine;
         while (height-- > 0) {
@@ -562,7 +562,7 @@ final class ScreenModelImp extends ScreenModel implements Renderable {
 
         }
     }
-    //×Ö½Ú·´×ª±í
+    //å­—èŠ‚åè½¬è¡¨
     private static byte[] REVERSE_TAB = {
         (byte) 0x00, (byte) 0x80, (byte) 0x40, (byte) 0xc0, (byte) 0x20, (byte) 0xa0, (byte) 0x60, (byte) 0xe0,
         (byte) 0x10, (byte) 0x90, (byte) 0x50, (byte) 0xd0, (byte) 0x30, (byte) 0xb0, (byte) 0x70, (byte) 0xf0,
@@ -636,7 +636,7 @@ final class ScreenModelImp extends ScreenModel implements Renderable {
         int h = area.getHeight();
         int bytePreLine = w >>> 3;
 
-        //Õı³£Çé¿ö
+        //æ­£å¸¸æƒ…å†µ
         if (rate == 1 && circ == 0) {
             int byteOffset = y * BYTES_PER_LINE + (x >>> 3) + bytePreLine - 1;
             int rgbOffset = y * WIDTH + x + w - 1;
@@ -652,7 +652,7 @@ final class ScreenModelImp extends ScreenModel implements Renderable {
                 rgbOffset += WIDTH;
                 byteOffset += BYTES_PER_LINE + bytePreLine;
             }
-        } //·Å´óÁ½±¶Ğı×ª90¶È
+        } //æ”¾å¤§ä¸¤å€æ—‹è½¬90åº¦
         else if (rate == 2 && circ == 1) {
             int byteOffset = y * BYTES_PER_LINE + (x >>> 3) + bytePreLine - 1;
             int rgbOffset = (WIDTH - 1) * (HEIGHT << 2) - (HEIGHT << 2) * x + (y << 1);
@@ -678,7 +678,7 @@ final class ScreenModelImp extends ScreenModel implements Renderable {
                 rgbOffset += 2;
                 byteOffset += BYTES_PER_LINE + bytePreLine;
             }
-        } //·Å´óÁ½±¶Ğı×ª270¶È
+        } //æ”¾å¤§ä¸¤å€æ—‹è½¬270åº¦
         else if (rate == 2 && circ == 3) {
             int byteOffset = y * BYTES_PER_LINE + (x >>> 3) + bytePreLine - 1;
             int rgbOffset = x * (HEIGHT << 2) + 2 * (HEIGHT - 1) - (y << 1);
@@ -769,12 +769,12 @@ final class ScreenModelImp extends ScreenModel implements Renderable {
     }
 
     /**
-     * Íù±ä»¯ÇøÓòÀïÌí¼ÓÒ»¸öµã<p>
-     * ×¢Òâ,¸Ã·½·¨²»¶Ôx,y½øĞĞ¼ì²é,µ÷ÓÃÕßÓ¦È·±£x,yµÄÓĞĞ§ĞÔ
+     * å¾€å˜åŒ–åŒºåŸŸé‡Œæ·»åŠ ä¸€ä¸ªç‚¹<p>
+     * æ³¨æ„,è¯¥æ–¹æ³•ä¸å¯¹x,yè¿›è¡Œæ£€æŸ¥,è°ƒç”¨è€…åº”ç¡®ä¿x,yçš„æœ‰æ•ˆæ€§
      */
     private void addPoint(int x, int y) {
         if (isClear) {
-            //µÚÒ»´Î¼ÓÈëµã
+            //ç¬¬ä¸€æ¬¡åŠ å…¥ç‚¹
             isClear = false;
             sx = ex = x;
             sy = ey = y;
@@ -794,8 +794,8 @@ final class ScreenModelImp extends ScreenModel implements Renderable {
         }
 
     }
-    //sx,syÎªÇøÓòµÄ×óÉÏ½ÇÄÇ¸öµã,ex,eyÎªÓÒÏÂ½ÇÄÇ¸öµã,×¢Òâ¶¼°üº¬ÔÚÄÚ
+    //sx,syä¸ºåŒºåŸŸçš„å·¦ä¸Šè§’é‚£ä¸ªç‚¹,ex,eyä¸ºå³ä¸‹è§’é‚£ä¸ªç‚¹,æ³¨æ„éƒ½åŒ…å«åœ¨å†…
     private int sx = 0,  sy = 0,  ex = -1,  ey = -1;
-    //Èç¹ûÇøÓòÄÚ»¹Ã»ÓĞÈÎºÎµã
+    //å¦‚æœåŒºåŸŸå†…è¿˜æ²¡æœ‰ä»»ä½•ç‚¹
     private boolean isClear = true;
 }

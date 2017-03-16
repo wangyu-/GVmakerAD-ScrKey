@@ -5,11 +5,11 @@ import eastsun.jgvm.module.ram.Ram;
 import eastsun.jgvm.module.ram.RelativeRam;
 
 /**
- * ÎÄ±¾Êä³öÄ£Ê½µÄ²Ù×÷½Ó¿Ú <p>
- * Ò»¸ötextmodel¸ºÔğÎ¬³ÖÎÄ±¾»º³åÇøµÄÄÚÈİÒÔ¼°ÎÄ±¾»º³åÇøµÄÊä³öÖ¸Õë<p>
- * ÆäÄÚÈİµÄ»æÖÆĞèÒªµ÷ÓÃÏàÓ¦µÄScreenModel<p>
- * ¶ÔÓÚ¸ÃÀàµÄ´ó²¿·Ö·½·¨£¬Ó¦¸ÃÔÚÊ¹ÓÃsetScreenModel·½·¨ÉèÖÃºÃScreenModelºóµ÷ÓÃ<p>
- * ¸Ã½Ó¿Ú±£ÁôÁË¶ÔÎÄ±¾»º³åÇø¹ØÁªRAMµÄ¿ÉÑ¡ÊµÏÖ
+ * æ–‡æœ¬è¾“å‡ºæ¨¡å¼çš„æ“ä½œæ¥å£ <p>
+ * ä¸€ä¸ªtextmodelè´Ÿè´£ç»´æŒæ–‡æœ¬ç¼“å†²åŒºçš„å†…å®¹ä»¥åŠæ–‡æœ¬ç¼“å†²åŒºçš„è¾“å‡ºæŒ‡é’ˆ<p>
+ * å…¶å†…å®¹çš„ç»˜åˆ¶éœ€è¦è°ƒç”¨ç›¸åº”çš„ScreenModel<p>
+ * å¯¹äºè¯¥ç±»çš„å¤§éƒ¨åˆ†æ–¹æ³•ï¼Œåº”è¯¥åœ¨ä½¿ç”¨setScreenModelæ–¹æ³•è®¾ç½®å¥½ScreenModelåè°ƒç”¨<p>
+ * è¯¥æ¥å£ä¿ç•™äº†å¯¹æ–‡æœ¬ç¼“å†²åŒºå…³è”RAMçš„å¯é€‰å®ç°
  * @author Eastsun
  * @version 1.0 2007/2/1
  */
@@ -30,7 +30,7 @@ public final class TextModel {
     }
 
     /**
-     * ÉèÖÃÓÃÓÚÏÔÊ¾µÄScreenModel,²¢×÷ÊÊµ±µÄ³õÊ¼»¯
+     * è®¾ç½®ç”¨äºæ˜¾ç¤ºçš„ScreenModel,å¹¶ä½œé€‚å½“çš„åˆå§‹åŒ–
      * @param screen
      */
     public void setScreenModel(ScreenModel screen) {
@@ -54,7 +54,7 @@ public final class TextModel {
     }
 
     /**
-     * µÃµ½ÓÃÓÚÏÔÊ¾µÄScreenModel
+     * å¾—åˆ°ç”¨äºæ˜¾ç¤ºçš„ScreenModel
      * @return screenModel
      */
     public ScreenModel getScreenModel() {
@@ -62,17 +62,17 @@ public final class TextModel {
     }
 
     /**
-     * ÎÄ±¾»º³åÇøÊÇ·ñÓĞ¹ØÁªµÄRam
-     * @return ×ÜÊÇtrue
+     * æ–‡æœ¬ç¼“å†²åŒºæ˜¯å¦æœ‰å…³è”çš„Ram
+     * @return æ€»æ˜¯true
      */
     public boolean hasRelativeRam() {
         return true;
     }
 
     /**
-     * µÃµ½Óë¸ÃÎÄ±¾»º³åÇøÏà¹ØÁªµÄRam,¿ÉÒÔ½«Æä°²×°µ½RamManagerÖĞ,ÒÔÊ¹µÃLAVA³ÌĞòÄÜ¹»Ö±½Ó·ÃÎÊµ½ÎÄ±¾»º³åÇø
-     * @return ram ¹ØÁªµÄRam,¸ÃRamÄÚÈİÓëÎÄ±¾»º³åÇø±£³ÖÍ¬²½±ä»¯
-     * @throws IllegalStateException Èç¹ûhasRelativeRam()·½·¨·µ»Øfalse
+     * å¾—åˆ°ä¸è¯¥æ–‡æœ¬ç¼“å†²åŒºç›¸å…³è”çš„Ram,å¯ä»¥å°†å…¶å®‰è£…åˆ°RamManagerä¸­,ä»¥ä½¿å¾—LAVAç¨‹åºèƒ½å¤Ÿç›´æ¥è®¿é—®åˆ°æ–‡æœ¬ç¼“å†²åŒº
+     * @return ram å…³è”çš„Ram,è¯¥Ramå†…å®¹ä¸æ–‡æœ¬ç¼“å†²åŒºä¿æŒåŒæ­¥å˜åŒ–
+     * @throws IllegalStateException å¦‚æœhasRelativeRam()æ–¹æ³•è¿”å›false
      * @see RamManager#install(Ram)
      */
     public RelativeRam getTextRam() {
@@ -80,18 +80,18 @@ public final class TextModel {
     }
 
     /**
-     * ÍùÎÄ±¾»º³åÇøÌí¼ÓÒ»¸ögb2312±àÂëµÄ×Ö·û,²»Ë¢ĞÂµ½ÆÁÄ»
+     * å¾€æ–‡æœ¬ç¼“å†²åŒºæ·»åŠ ä¸€ä¸ªgb2312ç¼–ç çš„å­—ç¬¦,ä¸åˆ·æ–°åˆ°å±å¹•
      * @param c
      */
     public void addChar(char c) {
         if (curRow >= maxRow) {
-            //Èç¹ûÒÑ¾­³¬³öÆÁÄ»,½«ÎÄ±¾»º³åÇøÄÚÈİÉÏÒÆÒ»ĞĞ
+            //å¦‚æœå·²ç»è¶…å‡ºå±å¹•,å°†æ–‡æœ¬ç¼“å†²åŒºå†…å®¹ä¸Šç§»ä¸€è¡Œ
             textMoveUp();
         }
         if (c > 0xff) {
-            //Èç¹ûÊÇÒ»¸ögb2312×Ö·û
+            //å¦‚æœæ˜¯ä¸€ä¸ªgb2312å­—ç¬¦
             if (curCol + 1 >= maxCol) {
-                //¿ÕÎ»²»×ã,×ªÏÂÒ»ĞĞ
+                //ç©ºä½ä¸è¶³,è½¬ä¸‹ä¸€è¡Œ
                 buffer[maxCol * curRow + curCol] = (byte) 0x20;
                 curCol = 0;
                 curRow++;
@@ -109,7 +109,7 @@ public final class TextModel {
             }
             return;
         }
-        //ÊÇÒ»¸öµ¥×Ö½Ú×Ö·û
+        //æ˜¯ä¸€ä¸ªå•å­—èŠ‚å­—ç¬¦
         switch (c) {
             case 0x0a:
                 curCol = 0;
@@ -133,14 +133,14 @@ public final class TextModel {
     }
 
     /**
-     * Ë¢ĞÂÆÁÄ»,Ö»¿¼ÂÇµÍ°ËÎ»<p>
-     * ´Ó¸ßµ½µÍ¿ØÖÆÆÁÄ»µÄÃ¿Ò»ĞĞ£¬0±íÊ¾¸ÃĞĞ¸üĞÂ£¬1±íÊ¾¸ÃĞĞ²»¸üĞÂ<p>
-     * µ±mÎª0Ê±Ë¢ĞÂÈ«²¿ÎÄ±¾»º³åÇøµ½ÆÁÄ»<p>
-     * @param m Ë¢ĞÂÄ£Ê½
+     * åˆ·æ–°å±å¹•,åªè€ƒè™‘ä½å…«ä½<p>
+     * ä»é«˜åˆ°ä½æ§åˆ¶å±å¹•çš„æ¯ä¸€è¡Œï¼Œ0è¡¨ç¤ºè¯¥è¡Œæ›´æ–°ï¼Œ1è¡¨ç¤ºè¯¥è¡Œä¸æ›´æ–°<p>
+     * å½“mä¸º0æ—¶åˆ·æ–°å…¨éƒ¨æ–‡æœ¬ç¼“å†²åŒºåˆ°å±å¹•<p>
+     * @param m åˆ·æ–°æ¨¡å¼
      */
     public void updateLCD(int m) {
         m &= 0xff;
-        //²»ĞèÒªË¢ĞÂ
+        //ä¸éœ€è¦åˆ·æ–°
         if (m == 0xff) {
             return;
         }
@@ -152,7 +152,7 @@ public final class TextModel {
             drawMode |= render.TEXT_BIG_TYPE;
         }
         if (m == 0) {
-            //Ë¢ĞÂËùÓĞ
+            //åˆ·æ–°æ‰€æœ‰
             render.setDrawMode(render.DRAW_CLEAR_TYPE | render.RENDER_GRAPH_TYPE | render.RENDER_FILL_TYPE);
             render.drawRect(0, 0, screen.getWidth(), screen.getHeight());
             render.setDrawMode(drawMode);
@@ -164,7 +164,7 @@ public final class TextModel {
             render.setDrawMode(drawMode);
             for (int row = 0; row < maxRow; row++) {
                 if ((m & 0x80) == 0) {
-                    //Ë¢ĞÂ¸ÃĞĞ
+                    //åˆ·æ–°è¯¥è¡Œ
                     render.drawString(ox, oy + row * dy, getter, row * maxCol, maxCol);
                 }
                 m <<= 1;
@@ -183,8 +183,8 @@ public final class TextModel {
     }
 
     /**
-     * Çå³ıÎÄ±¾»º³åÇø²¢ÉèÖÃ×ÖÌå,¼´SetScreen
-     * @param mode mode==0Îª´ó×ÖÌå,·ñÔòÎªĞ¡×ÖÌå
+     * æ¸…é™¤æ–‡æœ¬ç¼“å†²åŒºå¹¶è®¾ç½®å­—ä½“,å³SetScreen
+     * @param mode mode==0ä¸ºå¤§å­—ä½“,å¦åˆ™ä¸ºå°å­—ä½“
      */
     public void setTextMode(int mode) {
         ram.clear();
@@ -202,7 +202,7 @@ public final class TextModel {
     }
 
     /**
-     * ½«ÎÄ±¾»º³åÇøÄÚÈİÕûÌåÉÏÒÆÒ»ĞĞ,curRow--
+     * å°†æ–‡æœ¬ç¼“å†²åŒºå†…å®¹æ•´ä½“ä¸Šç§»ä¸€è¡Œ,curRow--
      */
     private void textMoveUp() {
         if (curRow <= 0) {
@@ -233,7 +233,7 @@ public final class TextModel {
     }
 
     /**
-     * Ê¹ÓÃÒ»¸öÍâ²¿byteÊı×é×÷ÎªÊı¾İ´æ´¢µÄRam,×¢Òâ:Íâ²¿ĞŞ¸Ä´ËbyteÊı×é»áÓ°Ïìµ½´ËRam
+     * ä½¿ç”¨ä¸€ä¸ªå¤–éƒ¨byteæ•°ç»„ä½œä¸ºæ•°æ®å­˜å‚¨çš„Ram,æ³¨æ„:å¤–éƒ¨ä¿®æ”¹æ­¤byteæ•°ç»„ä¼šå½±å“åˆ°æ­¤Ram
      * @author Eastsun
      * @version 2008-1-3
      */

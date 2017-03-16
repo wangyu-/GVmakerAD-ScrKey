@@ -3,7 +3,7 @@ package eastsun.jgvm.module.ram;
 import eastsun.jgvm.module.*;
 
 /**
- * 用于显存与缓存的Ram
+ * 鐢ㄤ簬鏄惧瓨涓庣紦瀛樼殑Ram
  * @author Eastsun
  * @version 2008/1/19
  */

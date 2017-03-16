@@ -4,127 +4,127 @@ import eastsun.jgvm.module.ram.Getable;
 import eastsun.jgvm.module.ram.Setable;
 
 /**
- * ÎÄ¼şÏµÍ³,ÊµÏÖGVMÖĞµÄ¸÷ÖÖÎÄ¼ş²Ù×÷¹¦ÄÜ<p>
+ * æ–‡ä»¶ç³»ç»Ÿ,å®ç°GVMä¸­çš„å„ç§æ–‡ä»¶æ“ä½œåŠŸèƒ½<p>
  * @author Eastsun
  */
 public interface FileModel {
 
     /**
-     * ÎÄ¼şÃûµÄ×î´ó³¤¶È(Ö¸×ª»¯Îªgb2312±àÂëºóµÄ³¤¶È)
+     * æ–‡ä»¶åçš„æœ€å¤§é•¿åº¦(æŒ‡è½¬åŒ–ä¸ºgb2312ç¼–ç åçš„é•¿åº¦)
      */
     public static final int FILE_NAME_LENGTH = 18;
 
     /**
-     * ¸Ä±äµ±Ç°¹¤×÷Ä¿Â¼
+     * æ”¹å˜å½“å‰å·¥ä½œç›®å½•
      */
     public boolean changeDir(Getable source, int addr);
 
     /**
-     * ´´½¨ÎÄ¼ş¼Ğ
+     * åˆ›å»ºæ–‡ä»¶å¤¹
      */
     public boolean makeDir(Getable source, int addr);
 
     /**
-     * µÃµ½µ±Ç°Ä¿Â¼ÏÂµÄÎÄ¼ş¸öÊı
-     * @return ÎÄ¼ş¼Ğ¸öÊı
+     * å¾—åˆ°å½“å‰ç›®å½•ä¸‹çš„æ–‡ä»¶ä¸ªæ•°
+     * @return æ–‡ä»¶å¤¹ä¸ªæ•°
      */
     public int getFileNum();
 
     /**
-     * µÃµ½µ±Ç°Ä¿Â¼ÏÂµÚstart¸ö¿ªÊ¼µÄnum¸öÎÄ¼şÃû,±£´æµ½namesÖĞ
-     * @param names ÓÃÓÚ±£´æÎÄ¼şÃûµÄStringÊı×é
-     * @param start ¿ªÊ¼ÎÄ¼şºÅ
-     * @param num   ¸öÊı
-     * @return      Êµ¼ÊµÃµ½µÄ¸öÊı,Èç³ö´í,·µ»Ø-1
+     * å¾—åˆ°å½“å‰ç›®å½•ä¸‹ç¬¬startä¸ªå¼€å§‹çš„numä¸ªæ–‡ä»¶å,ä¿å­˜åˆ°namesä¸­
+     * @param names ç”¨äºä¿å­˜æ–‡ä»¶åçš„Stringæ•°ç»„
+     * @param start å¼€å§‹æ–‡ä»¶å·
+     * @param num   ä¸ªæ•°
+     * @return      å®é™…å¾—åˆ°çš„ä¸ªæ•°,å¦‚å‡ºé”™,è¿”å›-1
      */
     public int listFiles(String[] names, int start, int num);
 
     /**
-     * ´ò¿ªÎÄ¼ş
-     * @param source ±£´æÊı¾İµÄÔ´
-     * @param fileName ÎÄ¼şÃû¿ªÊ¼µØÖ·
-     * @param openMode ´ò¿ªÄ£Ê½¿ªÊ¼µØÖ·
-     * @return ÎÄ¼şºÅ,µÍ8Î»ÓĞĞ§
+     * æ‰“å¼€æ–‡ä»¶
+     * @param source ä¿å­˜æ•°æ®çš„æº
+     * @param fileName æ–‡ä»¶åå¼€å§‹åœ°å€
+     * @param openMode æ‰“å¼€æ¨¡å¼å¼€å§‹åœ°å€
+     * @return æ–‡ä»¶å·,ä½8ä½æœ‰æ•ˆ
      */
     public int fopen(Getable source, int fileName, int openMode);
 
     /**
-     * ¹Ø±ÕÎÄ¼ş
-     * @param fp ĞèÒª¹Ø±ÕµÄÎÄ¼şºÅ
+     * å…³é—­æ–‡ä»¶
+     * @param fp éœ€è¦å…³é—­çš„æ–‡ä»¶å·
      */
     public void fclose(int fp);
 
     /**
-     * ´ÓÖ¸¶¨ÎÄ¼ş¶ÁÈ¡Ò»¸öbyte
-     * @param fp ÎÄ¼şºÅ
-     * @return ¶ÁÈ¡µÄ×Ö·û,µÍ°ËÎ»ÓĞĞ§;ÈôÊ§°Ü·µ»Ø-1
+     * ä»æŒ‡å®šæ–‡ä»¶è¯»å–ä¸€ä¸ªbyte
+     * @param fp æ–‡ä»¶å·
+     * @return è¯»å–çš„å­—ç¬¦,ä½å…«ä½æœ‰æ•ˆ;è‹¥å¤±è´¥è¿”å›-1
      */
     public int getc(int fp);
 
     /**
-     * Ğ´ÈëÒ»¸ö×Ö·ûµ½Ö¸¶¨ÎÄ¼ş
-     * @param c ÒªĞ´ÈëµÄ×Ö·û,µÍ°ËÎ»ÓĞĞ§
-     * @param fp ÎÄ¼şºÅ
-     * @return Ğ´ÈëµÄ×Ö·û,ÈôÊ§°Ü·µ»Ø-1
+     * å†™å…¥ä¸€ä¸ªå­—ç¬¦åˆ°æŒ‡å®šæ–‡ä»¶
+     * @param c è¦å†™å…¥çš„å­—ç¬¦,ä½å…«ä½æœ‰æ•ˆ
+     * @param fp æ–‡ä»¶å·
+     * @return å†™å…¥çš„å­—ç¬¦,è‹¥å¤±è´¥è¿”å›-1
      */
     public int putc(int c, int fp);
 
     /**
-     * ¶ÁÈ¡Ò»¶ÎÊı¾İ
-     * @param addr Êı¾İÔÚdestÖĞ±£´æµÄ¿ªÊ¼µØÖ·
-     * @param dest ±£´æÊı¾İµÄSetable
-     * @param size ĞèÒª¶ÁÈ¡Êı¾İµÄ³¤¶È
-     * @param fp   ÎÄ¼şºÅ
-     * @return     ¶ÁÈ¡Êı¾İµÄ³¤¶È,Èç·¢ÉúIO´íÎó»òÓöÎÄ¼ş½áÎ²·µ»Ø0
+     * è¯»å–ä¸€æ®µæ•°æ®
+     * @param addr æ•°æ®åœ¨destä¸­ä¿å­˜çš„å¼€å§‹åœ°å€
+     * @param dest ä¿å­˜æ•°æ®çš„Setable
+     * @param size éœ€è¦è¯»å–æ•°æ®çš„é•¿åº¦
+     * @param fp   æ–‡ä»¶å·
+     * @return     è¯»å–æ•°æ®çš„é•¿åº¦,å¦‚å‘ç”ŸIOé”™è¯¯æˆ–é‡æ–‡ä»¶ç»“å°¾è¿”å›0
      */
     public int fread(Setable dest, int addr, int size, int fp);
 
     /**
-     * Ğ´ÈëÒ»¶ÎÊı¾İ
-     * @param source ĞèÒªĞ´ÈëµÄÊı¾İËùÔÚµÄGetable
-     * @param addr   Êı¾İÔÚsourceÖĞµÄ¿ªÊ¼µØÖ·
-     * @param size   Ğ´ÈëÊı¾İµÄ³¤¶È
-     * @param fp     ÎÄ¼şºÅ
-     * @return       Ğ´ÈëÊı¾İµÄ³¤¶È,Èç·¢ÉúIO´íÎó»òÓöµ½ÎÄ¼ş½áÎ²·µ»Ø0
+     * å†™å…¥ä¸€æ®µæ•°æ®
+     * @param source éœ€è¦å†™å…¥çš„æ•°æ®æ‰€åœ¨çš„Getable
+     * @param addr   æ•°æ®åœ¨sourceä¸­çš„å¼€å§‹åœ°å€
+     * @param size   å†™å…¥æ•°æ®çš„é•¿åº¦
+     * @param fp     æ–‡ä»¶å·
+     * @return       å†™å…¥æ•°æ®çš„é•¿åº¦,å¦‚å‘ç”ŸIOé”™è¯¯æˆ–é‡åˆ°æ–‡ä»¶ç»“å°¾è¿”å›0
      */
     public int fwrite(Getable source, int addr, int size, int fp);
 
     /**
-     * É¾³ıÎÄ¼ş
+     * åˆ é™¤æ–‡ä»¶
      */
     public boolean deleteFile(Getable source, int addr);
 
     /**
-     * ÎÄ¼şÖ¸Õë¶¨Î»
-     * @param fp     ÎÄ¼şºÅ
-     * @param offset ±àÒëÁ¿
-     * @param base   »ùµã
-     * @return       ¶¨Î»ºóµÄÎÄ¼şÖ¸Õë,Èô³ö´í·µ»Ø-1
+     * æ–‡ä»¶æŒ‡é’ˆå®šä½
+     * @param fp     æ–‡ä»¶å·
+     * @param offset ç¼–è¯‘é‡
+     * @param base   åŸºç‚¹
+     * @return       å®šä½åçš„æ–‡ä»¶æŒ‡é’ˆ,è‹¥å‡ºé”™è¿”å›-1
      */
     public int fseek(int fp, int offset, int base);
 
     /**
-     * µÃµ½ÎÄ¼şÖ¸Õë
-     * @param fp ÎÄ¼şºÅ
-     * @return   ÎÄ¼şÖ¸Õë
+     * å¾—åˆ°æ–‡ä»¶æŒ‡é’ˆ
+     * @param fp æ–‡ä»¶å·
+     * @return   æ–‡ä»¶æŒ‡é’ˆ
      */
     public int ftell(int fp);
 
     /**
-     * ¼ì²éÎÄ¼şÊÇ·ñÒÑ½áÊø
-     * @param fp ÎÄ¼şºÅ
-     * @return   true,Èç¹ûÒÑ½áÊø;·ñÔòfalse
+     * æ£€æŸ¥æ–‡ä»¶æ˜¯å¦å·²ç»“æŸ
+     * @param fp æ–‡ä»¶å·
+     * @return   true,å¦‚æœå·²ç»“æŸ;å¦åˆ™false
      */
     public boolean feof(int fp);
 
     /**
-     * ÎÄ¼şÖ¸Õë¸´Î»
-     * @param fp ÎÄ¼şºÅ
+     * æ–‡ä»¶æŒ‡é’ˆå¤ä½
+     * @param fp æ–‡ä»¶å·
      */
     public void rewind(int fp);
 
     /**
-     * ¹Ø±ÕËùÓĞÎÄ¼ş,ÊÍ·ÅÕ¼ÓÃµÄ×ÊÔ´
+     * å…³é—­æ‰€æœ‰æ–‡ä»¶,é‡Šæ”¾å ç”¨çš„èµ„æº
      */
     public void dispose();
 }

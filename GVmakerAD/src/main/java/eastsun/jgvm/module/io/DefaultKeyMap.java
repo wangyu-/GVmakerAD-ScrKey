@@ -1,7 +1,7 @@
 package eastsun.jgvm.module.io;
 
 /**
- * KeyMapµÄÄ¬ÈÏÊµÏÖ
+ * KeyMapçš„é»˜è®¤å®ç°
  * @author Eastsun
  * @version 2008-2-21
  */
