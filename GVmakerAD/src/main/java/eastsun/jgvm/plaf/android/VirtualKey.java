@@ -150,7 +150,7 @@ public class VirtualKey extends View {
 	}
     public synchronized void refresh(Canvas canvas) { 
     	Paint paint=new Paint();
-    	paint.setAlpha(80);
+    	//paint.setAlpha(80);
     	if(mShowAllKey)
     		canvas.drawBitmap(mFullKey,mFullKeyRect, mScreenRect, paint);
     	else

@@ -23,7 +23,7 @@ public class ScreenPane {
     private boolean mOptimize=false;
     public ScreenPane(JGVM gvm) {
     	mBitmap = Bitmap.createBitmap(ScreenModel.WIDTH, ScreenModel.HEIGHT, Bitmap.Config.ARGB_8888);
-        gvm.setColor(0xff000000, 0xff40c040);
+        gvm.setColor(0xff000000, 0xffdfffdf);
         mBufferRect = new Rect(0, 0, ScreenModel.WIDTH, ScreenModel.HEIGHT);
         setSize(ScreenModel.WIDTH, ScreenModel.HEIGHT);
         //Log.w("wangyu,screenmodel:",ScreenModel.WIDTH+","+ScreenModel.HEIGHT);
@@ -71,7 +71,8 @@ public class ScreenPane {
     // refresh current screen to specific canvas
     public synchronized void refresh(Canvas canvas, Area area) {
     	//TODO: area information is unused. 
-    	canvas.drawColor(-12533696);
+    	//canvas.drawColor(-12533696);
+        //canvas.drawARGB(0, 0, 0, 0);
     		canvas.drawBitmap(mBitmap,mBufferRect, mScreenRect, null);
     }
     public int GVMToScreent(int n){

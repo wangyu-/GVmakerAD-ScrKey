@@ -190,7 +190,7 @@ public class MainView extends SurfaceView implements SurfaceHolder.Callback,
 		try {
 			c = holder.lockCanvas(null);
 			mScreen.refresh(c, area);
-			paint.setAlpha(100);
+			//paint.setAlpha(100);
 		} catch (Exception ex) {
 			android.util.Log.e("MainView", ex.toString());
 		} finally {
